@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Code, Rocket, Heart, Sparkles } from "lucide-react";
+import { Code, Rocket, Smile, Sparkles } from "lucide-react";
 import { useLeetCodeStats } from "@/hooks/useLeetCodeStats";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -62,7 +62,7 @@ const AboutSection = () => {
   const stats = [
     { icon: Code, value: 50, label: "Projects Completed", suffix: "+" },
     { icon: Rocket, value: 3, label: "Years Experience", suffix: "+" },
-    { icon: Heart, value: 100, label: "Client Satisfaction", suffix: "%" },
+    { icon: Smile, value: 100, label: "Client Satisfaction", suffix: "%" },
     { icon: Sparkles, value: leetcodeSolved, label: "LeetCode Problems", suffix: "+" },
   ];
 

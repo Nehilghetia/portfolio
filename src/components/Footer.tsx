@@ -1,4 +1,4 @@
-import { Github, Linkedin, Mail, Youtube, Twitter, Heart } from "lucide-react";
+import { Github, Linkedin, Mail, Youtube, Twitter } from "lucide-react";
 import { motion } from "framer-motion";
 
 const links = [
@@ -110,7 +110,7 @@ const Footer = () => (
                     <span className="hidden sm:inline">All rights reserved.</span>
                 </div>
                 <div className="flex items-center gap-1 font-medium bg-secondary/30 px-4 py-2 rounded-full border border-white/5">
-                    Made with <Heart size={14} className="text-primary fill-primary/20 animate-pulse" /> in India
+                    Built with passion in India
                 </div>
             </div>
         </div>
