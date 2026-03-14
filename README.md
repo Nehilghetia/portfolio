@@ -70,4 +70,4 @@ npm run build
 - **Twitter**: [@nehilghetia](https://twitter.com/nehilghetia)
 
 ---
-Developed with ❤️ by [Nehil Ghetia](https://github.com/nehilghetia)
+Developed with passion by [Nehil Ghetia](https://github.com/nehilghetia)
