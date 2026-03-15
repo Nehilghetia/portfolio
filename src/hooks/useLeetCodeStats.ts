@@ -71,13 +71,13 @@ export const useLeetCodeStats = (username: string = "ghetiyanehil") => {
             if (!success && !data) {
                 // Final fallback for branding/portfolio consistency if no cache exists
                 const fallbackData: LeetCodeData = {
-                    solvedProblem: 165,
-                    easySolved: 85,
-                    mediumSolved: 72,
-                    hardSolved: 8,
-                    totalQuestions: 3290,
-                    ranking: "1,234,567",
-                    acceptanceRate: 54.2,
+                    solvedProblem: 202,
+                    easySolved: 132,
+                    mediumSolved: 59,
+                    hardSolved: 11,
+                    totalQuestions: 3873,
+                    ranking: "747,525",
+                    acceptanceRate: 84.03,
                     allQuestionsCount: [
                         { difficulty: "Easy", count: 932 },
                         { difficulty: "Medium", count: 2026 },
