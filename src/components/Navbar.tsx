@@ -4,14 +4,9 @@ import { Menu, X } from "lucide-react";
 import { ModeToggle } from "./mode-toggle";
 
 const navLinks = [
-  { label: "Home", href: "#home" },
   { label: "About", href: "#about" },
   { label: "Education", href: "#education" },
-  { label: "Skills", href: "#skills" },
   { label: "Projects", href: "#projects" },
-  { label: "Certifications", href: "#certifications" },
-  { label: "LeetCode", href: "#leetcode" },
-  { label: "Achievements", href: "#achievements" },
   { label: "Contact", href: "#contact" },
 ];
 

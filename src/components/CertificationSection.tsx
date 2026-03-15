@@ -119,7 +119,7 @@ const CertificationSection = () => {
                                         z: 50,
                                         boxShadow: `0 20px 50px -10px ${cert.color}40`
                                     }}
-                                    className="relative h-[420px] w-full rounded-[2rem] bg-[#080808] border border-white/5 transition-all duration-500 overflow-hidden"
+                                    className="relative min-h-[460px] md:h-[420px] w-full rounded-[2rem] bg-[#080808] border border-white/5 transition-all duration-500 overflow-hidden"
                                     style={{ transformStyle: "preserve-3d" }}
                                 >
                                     {/* Glass Reflection Overlay */}

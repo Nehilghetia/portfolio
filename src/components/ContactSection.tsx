@@ -89,7 +89,7 @@ const ContactSection = () => {
             Let's build something together
           </div>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight">
-            <span className="gradient-text">Start a project</span> <span className="text-foreground">or just say hi</span>
+            <span className="gradient-text">Contact Me</span> <span className="text-foreground">& Let's Talk</span>
           </h2>
           <div className="h-1 w-20 bg-gradient-to-r from-primary to-neon-purple rounded-full" />
           <div className="flex flex-wrap items-center justify-center gap-3">

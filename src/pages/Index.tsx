@@ -19,21 +19,23 @@ const Index = () => {
   const containerRef = useGsapScrollReveal();
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
       <MagneticCursor />
       <PageTransition>
-        <div ref={containerRef}>
+        <div ref={containerRef} className="overflow-x-hidden">
           <ScrollProgress />
           <Navbar />
-          <HeroSection />
-          <AboutSection />
-          <EducationSection />
-          <SkillsSection />
-          <ProjectsSection />
-          <LeetCodeSection />
-          <CertificationSection />
-          <AchievementsSection />
-          <ContactSection />
+          <main>
+            <HeroSection />
+            <AboutSection />
+            <EducationSection />
+            <SkillsSection />
+            <ProjectsSection />
+            <LeetCodeSection />
+            <CertificationSection />
+            <AchievementsSection />
+            <ContactSection />
+          </main>
           <Footer />
           <Chatbot />
         </div>

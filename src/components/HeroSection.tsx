@@ -112,7 +112,7 @@ const HeroSection = () => {
 
             <h1
               ref={titleRef}
-              className="text-6xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight tracking-tight"
+              className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight tracking-tight"
             >
               Nehil Ghetia
             </h1>
@@ -188,6 +188,7 @@ const HeroSection = () => {
                     href={s.href}
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label={s.label}
                     whileHover={{ scale: 1.2, y: -2 }}
                     className="w-10 h-10 rounded-lg glass border border-white/5 flex items-center justify-center text-muted-foreground hover:text-primary transition-all"
                   >
@@ -208,7 +209,7 @@ const HeroSection = () => {
             {/* Main Outer Glow */}
             <div className="absolute w-[400px] h-[400px] md:w-[600px] md:h-[600px] bg-neon-purple/20 rounded-full blur-[120px] animate-pulse" />
 
-            <div className="relative w-[320px] h-[320px] md:w-[400px] md:h-[400px]">
+            <div className="relative w-[280px] h-[280px] sm:w-[320px] sm:h-[320px] md:w-[400px] md:h-[400px]">
               {/* Spinning Orbit Rings */}
               <motion.div
                 animate={{ rotate: 360 }}
@@ -225,12 +226,12 @@ const HeroSection = () => {
               {[Sparkles, Zap, Code, Github, Linkedin, Twitter].map((Icon, i) => (
                 <motion.div
                   key={i}
-                  className="absolute"
                   style={{
                     top: "50%",
                     left: "50%",
-                    transform: `translate(-50%, -50%) rotate(${i * 60}deg) translateY(-180px) md:translateY(-240px)`,
+                    transform: `translate(-50%, -50%) rotate(${i * 60}deg) translateY(var(--orbit-radius, -140px))`,
                   }}
+                  className="absolute [--orbit-radius:-140px] md:[--orbit-radius:-240px]"
                   animate={{ rotate: 360 }}
                   transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
                 >

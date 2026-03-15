@@ -275,11 +275,11 @@ const LeetCodeSection = () => {
                                             <span className="text-sm font-mono text-muted-foreground">Nehilghetia</span>
                                         </div>
 
-                                        <div className="relative rounded-xl bg-black/20 p-4 border border-white/5 overflow-x-auto">
+                                        <div className="relative rounded-xl bg-black/20 p-4 border border-white/5 overflow-x-auto custom-scrollbar">
                                             <img
                                                 src="https://ghchart.rshah.org/Nehilghetia"
                                                 alt="GitHub Contributions"
-                                                className="w-full min-w-[700px] h-auto invert dark:invert-0 opacity-80 group-hover:opacity-100 transition-opacity"
+                                                className="min-w-[600px] md:min-w-0 w-full h-auto invert dark:invert-0 opacity-80 group-hover:opacity-100 transition-opacity"
                                             />
                                         </div>
 

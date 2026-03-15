@@ -101,7 +101,7 @@ const CyclingSkillGrid = ({ skills }: { skills: any[] }) => {
     : skills;
 
   return (
-    <div className="grid grid-cols-3 gap-3 min-h-[260px]">
+    <div className="grid grid-cols-2 xs:grid-cols-3 gap-3 min-h-[300px] sm:min-h-[260px]">
       <AnimatePresence mode="popLayout">
         {displayedSkills.map((skill, idx) => (
           <motion.div
