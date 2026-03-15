@@ -85,7 +85,7 @@ const HeroSection = () => {
     <section
       ref={sectionRef}
       id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 lg:pt-0"
+      className="relative min-h-screen flex items-start lg:items-center justify-center overflow-hidden pt-24 sm:pt-32 pb-12 lg:pt-20"
     >
       <div className="container mx-auto relative z-10 px-4">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -94,25 +94,25 @@ const HeroSection = () => {
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1 }}
-            className="text-left"
+            className="text-left mt-4"
           >
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-8"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full bg-primary/10 border border-primary/20 mb-4 sm:mb-6"
             >
-              <div className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse shadow-[0_0_8px_rgba(34,211,238,0.8)]" />
-              <span className="text-xs font-mono text-cyan-400 tracking-wider uppercase">Available for work</span>
+              <div className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse shadow-[0_0_8px_rgba(34,211,238,0.8)]" />
+              <span className="text-[10px] sm:text-xs font-mono text-cyan-400 tracking-wider uppercase">Available for work</span>
             </motion.div>
 
-            <p className="text-primary font-mono text-sm tracking-[0.3em] mb-4 uppercase font-bold drop-shadow-[0_0_8px_rgba(var(--primary-rgb),0.5)]">
+            <p className="text-primary font-mono text-[10px] sm:text-xs tracking-[0.3em] mb-2 uppercase font-bold drop-shadow-[0_0_8px_rgba(var(--primary-rgb),0.5)]">
               Hello, I'm
             </p>
 
             <h1
               ref={titleRef}
-              className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight tracking-tight"
+              className="text-4xl sm:text-6xl lg:text-7xl font-bold mb-4 leading-[1.1] tracking-tight whitespace-nowrap md:whitespace-normal"
             >
               Nehil Ghetia
             </h1>
