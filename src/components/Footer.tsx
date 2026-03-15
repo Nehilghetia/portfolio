@@ -43,7 +43,7 @@ const Footer = () => (
                                 rel="noopener noreferrer"
                                 whileHover={{ scale: 1.1, y: -4 }}
                                 whileTap={{ scale: 0.95 }}
-                                className="w-10 h-10 rounded-xl glass border border-white/10 flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/50 transition-all shadow-sm"
+                                className="w-10 h-10 rounded-xl glass border border-border/50 flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/50 transition-all shadow-sm"
                             >
                                 <s.icon size={20} />
                             </motion.a>
@@ -103,12 +103,12 @@ const Footer = () => (
                 </div>
             </div>
 
-            <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-6 text-sm text-muted-foreground">
+            <div className="pt-8 border-t border-border/50 flex flex-col md:flex-row items-center justify-between gap-6 text-sm text-muted-foreground">
                 <div className="flex items-center gap-2">
                     © {new Date().getFullYear()} <span className="text-foreground font-semibold">Nehil Ghetia</span>.
                     <span className="hidden sm:inline">All rights reserved.</span>
                 </div>
-                <div className="flex items-center gap-1 font-medium bg-secondary/30 px-4 py-2 rounded-full border border-white/5">
+                <div className="flex items-center gap-1 font-medium bg-secondary/30 px-4 py-2 rounded-full border border-border/10">
                     Built with passion in India
                 </div>
             </div>

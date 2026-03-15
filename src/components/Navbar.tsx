@@ -87,7 +87,7 @@ const Navbar = () => {
           {/* Mobile toggle */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="text-foreground p-2 rounded-xl bg-white/5 border border-white/5 active:scale-90 transition-transform"
+            className="text-foreground p-2 rounded-xl bg-foreground/5 border border-border/50 active:scale-90 transition-transform"
             aria-label="Toggle menu"
           >
             {mobileOpen ? <X size={24} /> : <Menu size={24} />}
@@ -102,7 +102,7 @@ const Navbar = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden glass-strong border-t border-white/5 absolute top-full left-0 right-0 z-[55] overflow-hidden"
+            className="md:hidden glass-strong border-t border-border/10 absolute top-full left-0 right-0 z-[55] overflow-hidden"
           >
             <ul className="flex flex-col items-center gap-2 py-8 max-h-[70vh] overflow-y-auto px-6">
               {navLinks.map((link) => (
@@ -110,7 +110,7 @@ const Navbar = () => {
                   <a
                     href={link.href}
                     onClick={(e) => handleLinkClick(e, link.href)}
-                    className="text-xl block w-full py-3 text-muted-foreground hover:text-primary transition-colors duration-200 font-semibold text-center rounded-xl hover:bg-white/5"
+                    className="text-xl block w-full py-3 text-muted-foreground hover:text-primary transition-colors duration-200 font-semibold text-center rounded-xl hover:bg-foreground/5"
                   >
                     {link.label}
                   </a>

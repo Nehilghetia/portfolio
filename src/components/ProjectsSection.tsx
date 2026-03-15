@@ -153,7 +153,7 @@ const ProjectsSection = () => {
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={isInView ? { opacity: 1, scale: 1 } : {}}
-            className="flex flex-wrap justify-center gap-2 p-1 bg-white/5 backdrop-blur-md rounded-2xl border border-white/10 w-fit mx-auto"
+            className="flex flex-wrap justify-center gap-2 p-1 bg-foreground/5 backdrop-blur-md rounded-2xl border border-border w-fit mx-auto shadow-sm"
           >
             {categories.map((cat) => (
               <button
@@ -161,7 +161,7 @@ const ProjectsSection = () => {
                 onClick={() => setFilter(cat)}
                 className={`px-6 py-2 rounded-xl text-sm font-semibold transition-all duration-300 ${filter === cat
                   ? "bg-primary text-primary-foreground shadow-lg shadow-primary/25"
-                  : "text-muted-foreground hover:bg-white/10 hover:text-foreground"
+                  : "text-muted-foreground hover:bg-foreground/10 hover:text-foreground"
                   }`}
               >
                 {cat}
@@ -187,7 +187,7 @@ const ProjectsSection = () => {
                 style={{ perspective: "1000px" }}
               >
                 <motion.div
-                  className="relative glass rounded-2xl border border-white/10 overflow-hidden h-full"
+                  className="relative glass rounded-2xl border border-border shadow-lg shadow-foreground/5 overflow-hidden h-full"
                   whileHover={{ y: -10, rotateX: 5, rotateY: 5 }}
                   transition={{ duration: 0.3 }}
                 >
@@ -272,12 +272,12 @@ const ProjectsSection = () => {
             <div className="fixed inset-0 flex items-center justify-center z-[101] p-4 pointer-events-none">
               <motion.div
                 layoutId={`project-container-${selectedProject.id}`}
-                className="glass w-full max-w-4xl max-h-[90vh] rounded-[2.5rem] border border-white/10 overflow-hidden pointer-events-auto relative shadow-2xl flex flex-col"
+                className="glass w-full max-w-4xl max-h-[90vh] rounded-[2.5rem] border border-border/50 overflow-hidden pointer-events-auto relative shadow-2xl flex flex-col"
               >
                 {/* Close Button */}
                 <button
                   onClick={() => setSelectedProject(null)}
-                  className="absolute top-6 right-6 p-3 rounded-full bg-white/5 border border-white/10 text-foreground hover:bg-white/10 transition-all z-20"
+                  className="absolute top-6 right-6 p-3 rounded-full bg-foreground/5 border border-border/50 text-foreground hover:bg-foreground/10 transition-all z-20"
                 >
                   <X size={20} />
                 </button>
@@ -307,7 +307,7 @@ const ProjectsSection = () => {
                             href={selectedProject.live}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className={`flex-1 md:flex-none inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-2xl bg-gradient-to-r ${selectedProject.gradient} text-white font-bold hover:shadow-lg hover:shadow-primary/25 transition-all outline-none`}
+                            className={`flex-1 md:flex-none inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-2xl bg-gradient-to-r ${selectedProject.gradient} text-primary-foreground font-bold hover:shadow-lg hover:shadow-primary/25 transition-all outline-none`}
                             whileHover={{ scale: 1.02, y: -2 }}
                             whileTap={{ scale: 0.98 }}
                           >
@@ -320,7 +320,7 @@ const ProjectsSection = () => {
                             href={selectedProject.github}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex-1 md:flex-none inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-2xl bg-white/5 border border-white/10 text-foreground font-bold hover:bg-white/10 transition-all outline-none"
+                            className="flex-1 md:flex-none inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-2xl bg-foreground/5 border border-border/50 text-foreground font-bold hover:bg-foreground/10 transition-all outline-none"
                             whileHover={{ scale: 1.02, y: -2 }}
                             whileTap={{ scale: 0.98 }}
                           >
@@ -348,7 +348,7 @@ const ProjectsSection = () => {
                           </h4>
                           <div className="grid sm:grid-cols-2 gap-4">
                             {selectedProject.features.map((feature) => (
-                              <div key={feature} className="flex items-center gap-3 p-3 rounded-xl bg-white/5 border border-white/5">
+                              <div key={feature} className="flex items-center gap-3 p-3 rounded-xl bg-foreground/5 border border-border/10">
                                 <div className="w-1.5 h-1.5 rounded-full bg-primary" />
                                 <span className="text-sm text-muted-foreground">{feature}</span>
                               </div>

@@ -119,15 +119,15 @@ const CertificationSection = () => {
                                         z: 50,
                                         boxShadow: `0 20px 50px -10px ${cert.color}40`
                                     }}
-                                    className="relative min-h-[460px] md:h-[420px] w-full rounded-[2rem] bg-[#080808] border border-white/5 transition-all duration-500 overflow-hidden"
+                                    className="relative min-h-[460px] md:h-[420px] w-full rounded-[2rem] bg-card border border-border shadow-xl shadow-foreground/5 transition-all duration-500 overflow-hidden"
                                     style={{ transformStyle: "preserve-3d" }}
                                 >
                                     {/* Glass Reflection Overlay */}
                                     <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-1000 bg-gradient-to-tr from-white/5 via-transparent to-white/10 pointer-events-none" />
 
                                     {/* Holographic Category Watermark */}
-                                    <div className="absolute top-10 -right-10 opacity-[0.03] group-hover:opacity-[0.08] transition-opacity duration-700 pointer-events-none">
-                                        <h4 className="text-[10rem] font-black leading-none uppercase -rotate-90 origin-center tracking-tighter">
+                                    <div className="absolute top-10 -right-10 text-foreground/10 dark:text-foreground/5 group-hover:text-foreground/15 dark:group-hover:text-foreground/10 transition-colors duration-700 pointer-events-none">
+                                        <h4 className="text-[10rem] font-black leading-none uppercase -rotate-90 origin-center tracking-tighter whitespace-nowrap">
                                             {cert.category?.slice(0, 3)}
                                         </h4>
                                     </div>
@@ -153,12 +153,12 @@ const CertificationSection = () => {
                                         <div>
                                             <div className="flex items-center gap-2 mb-4">
                                                 <span className="h-0.5 w-6 rounded-full" style={{ backgroundColor: cert.color }} />
-                                                <span className="text-[10px] font-mono font-black uppercase tracking-[0.4em] text-muted-foreground group-hover:text-white transition-colors">
+                                                <span className="text-[10px] font-mono font-black uppercase tracking-[0.4em] text-muted-foreground group-hover:text-primary transition-colors">
                                                     {cert.category || 'Credential'}
                                                 </span>
                                             </div>
 
-                                            <h3 className="text-3xl font-black text-white leading-tight mb-4 tracking-tighter group-hover:tracking-normal transition-all duration-500">
+                                            <h3 className="text-3xl font-black text-foreground leading-tight mb-4 tracking-tighter group-hover:tracking-normal transition-all duration-500">
                                                 {cert.title}
                                             </h3>
 
@@ -168,7 +168,7 @@ const CertificationSection = () => {
                                                     {cert.skills.slice(0, 3).map((skill) => (
                                                         <span
                                                             key={skill}
-                                                            className="text-[11px] font-bold px-3 py-1.5 rounded-md bg-white/5 border border-white/10 text-muted-foreground group-hover:border-white/20 group-hover:text-foreground transition-all"
+                                                            className="text-[11px] font-bold px-3 py-1.5 rounded-md bg-foreground/5 border border-border text-muted-foreground group-hover:border-primary/20 group-hover:text-foreground transition-all"
                                                         >
                                                             {skill}
                                                         </span>
@@ -177,14 +177,14 @@ const CertificationSection = () => {
                                             )}
 
                                             {/* Minimal Tech Stamp */}
-                                            <div className="flex flex-wrap gap-4 pt-5 border-t border-white/10">
+                                            <div className="flex flex-wrap gap-4 pt-5 border-t border-border/50">
                                                 <div className="flex flex-col">
                                                     <span className="text-[10px] font-mono font-bold text-muted-foreground uppercase mb-1.5 tracking-wider">ISSUER</span>
-                                                    <span className="text-sm font-extrabold text-foreground group-hover:text-white transition-colors">{cert.issuer}</span>
+                                                    <span className="text-sm font-extrabold text-foreground group-hover:text-primary transition-colors">{cert.issuer}</span>
                                                 </div>
                                                 <div className="flex flex-col ml-auto text-right">
                                                     <span className="text-[10px] font-mono font-bold text-muted-foreground uppercase mb-1.5 tracking-wider">ISSUED</span>
-                                                    <span className="text-sm font-extrabold text-foreground group-hover:text-white transition-colors">{cert.date}</span>
+                                                    <span className="text-sm font-extrabold text-foreground group-hover:text-primary transition-colors">{cert.date}</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -192,7 +192,7 @@ const CertificationSection = () => {
                                         {/* Interaction Footer */}
                                         <div className="flex items-center justify-between">
                                             {cert.link !== "#" ? (
-                                                <div className="flex items-center gap-2 text-[10px] font-black tracking-widest text-primary group-hover:text-white transition-all">
+                                                <div className="flex items-center gap-2 text-[10px] font-black tracking-widest text-primary group-hover:text-foreground transition-all">
                                                     VERIFY ASSET <ExternalLink size={12} />
                                                 </div>
                                             ) : (

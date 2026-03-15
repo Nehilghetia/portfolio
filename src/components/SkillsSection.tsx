@@ -111,7 +111,7 @@ const CyclingSkillGrid = ({ skills }: { skills: any[] }) => {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.8, y: -10 }}
             transition={{ duration: 0.5, delay: idx * 0.05 }}
-            className="flex flex-col items-center justify-center gap-2 p-3 rounded-xl bg-white/5 hover:bg-primary/5 border border-white/5 hover:border-primary/20 transition-all duration-300 group/item aspect-square sm:aspect-auto"
+            className="flex flex-col items-center justify-center gap-2 p-3 rounded-xl bg-foreground/5 hover:bg-primary/5 border border-border/50 hover:border-primary/20 transition-all duration-300 group/item aspect-square sm:aspect-auto"
           >
             <div className="p-2 rounded-lg bg-background group-hover/item:text-primary transition-colors">
               <skill.icon className="w-6 h-6 sm:w-7 sm:h-7 opacity-80 group-hover/item:opacity-100" />
@@ -189,13 +189,13 @@ const SkillsSection = () => {
           {skillCategories.map((cat) => (
             <div
               key={cat.title}
-              className="skill-card group relative glass p-6 md:p-8 rounded-3xl border border-white/5 hover:border-primary/30 transition-all duration-500 overflow-hidden flex flex-col"
+              className="skill-card group relative glass p-6 md:p-8 rounded-3xl border border-border/50 hover:border-primary/30 transition-all duration-500 overflow-hidden flex flex-col"
             >
               <div className="absolute -inset-2 bg-gradient-to-br from-primary/10 via-transparent to-neon-purple/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
 
               <div className="relative z-10 w-full flex-1 flex flex-col">
                 <div className="flex items-center gap-5 mb-8">
-                  <div className="p-3.5 rounded-2xl bg-white/5 border border-white/10 group-hover:border-primary/40 group-hover:bg-primary/10 transition-all duration-500 flex-shrink-0">
+                  <div className="p-3.5 rounded-2xl bg-foreground/5 border border-border group-hover:border-primary/40 group-hover:bg-primary/10 transition-all duration-500 flex-shrink-0">
                     <cat.icon className="w-6 h-6 text-primary" />
                   </div>
                   <div className="flex-1 min-w-0">
@@ -210,7 +210,7 @@ const SkillsSection = () => {
                 <CyclingSkillGrid skills={cat.skills} />
 
                 {/* Auto Skill Changed Indicator */}
-                <div className="mt-auto flex items-center justify-between px-2 pt-4 border-t border-white/5">
+                <div className="mt-auto flex items-center justify-between px-2 pt-4 border-t border-border/50">
                   <div className="flex items-center gap-2 text-[11px] text-primary/60 font-mono tracking-widest uppercase leading-none">
                     <div className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse shadow-[0_0_8px_rgba(0,255,255,0.5)]" />
                     Auto-Rotating Stack

@@ -2,8 +2,10 @@ import { useRef, useState } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import { Code2, ExternalLink, Binary, Cpu, Database, Github, LayoutGrid, Activity } from "lucide-react";
 import { useLeetCodeStats } from "@/hooks/useLeetCodeStats";
+import { useTheme } from "next-themes";
 
 const LeetCodeSection = () => {
+    const { theme } = useTheme();
     const { data, loading, error } = useLeetCodeStats("ghetiyanehil");
     const [activeTab, setActiveTab] = useState<"leetcode" | "github">("leetcode");
     const sectionRef = useRef<HTMLElement>(null);
@@ -103,7 +105,7 @@ const LeetCodeSection = () => {
                     </p>
                     <h2 className="text-3xl md:text-6xl font-bold mb-6 flex flex-wrap items-center justify-center gap-x-3">
                         <span className="gradient-text">{activeTab === "leetcode" ? "LeetCode" : "GitHub"}</span>
-                        <span className="text-white/90">Insights</span>
+                        <span className="text-foreground/90">Insights</span>
                     </h2>
                     {error && data && (
                         <motion.div
@@ -158,7 +160,7 @@ const LeetCodeSection = () => {
                                                     transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
                                                     className="w-44 h-44 relative z-10"
                                                 >
-                                                    <circle cx="88" cy="88" r="76" stroke="currentColor" strokeWidth="10" fill="transparent" className="text-white/5" />
+                                                    <circle cx="88" cy="88" r="76" stroke="currentColor" strokeWidth="10" fill="transparent" className="text-foreground/5" />
                                                     <motion.circle
                                                         cx="88" cy="88" r="76" stroke="currentColor" strokeWidth="10" fill="transparent"
                                                         strokeDasharray={477}
@@ -175,7 +177,7 @@ const LeetCodeSection = () => {
                                                     <motion.span
                                                         initial={{ opacity: 0, scale: 0.5 }}
                                                         animate={{ opacity: 1, scale: 1 }}
-                                                        className="text-4xl sm:text-5xl font-black text-white tracking-tighter drop-shadow-2xl"
+                                                        className="text-4xl sm:text-5xl font-black text-foreground tracking-tighter drop-shadow-2xl"
                                                     >
                                                         {data?.solvedProblem || 0}
                                                     </motion.span>
@@ -185,20 +187,20 @@ const LeetCodeSection = () => {
                                             <h3 className="text-xl sm:text-2xl font-bold mb-2">Algorithm Master</h3>
                                             <p className="text-muted-foreground text-xs sm:text-sm mb-6">Optimizing algorithms and solving complex DSA challenges.</p>
                                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6 w-full">
-                                                <div className="p-4 rounded-2xl bg-white/5 border border-white/10 text-center flex flex-col justify-center min-h-[80px]">
+                                                <div className="p-4 rounded-2xl bg-foreground/5 border border-border text-center flex flex-col justify-center min-h-[80px]">
                                                     <p className="text-[10px] uppercase tracking-widest text-muted-foreground mb-1 font-semibold">Global Ranking</p>
-                                                    <p className="text-xl font-bold text-white tracking-tight">{data?.ranking || "747,525"}</p>
+                                                    <p className="text-xl font-bold text-foreground tracking-tight">{data?.ranking || "747,525"}</p>
                                                 </div>
-                                                <div className="p-4 rounded-2xl bg-white/5 border border-white/10 flex flex-col items-center justify-center min-h-[90px]">
+                                                <div className="p-4 rounded-2xl bg-foreground/5 border border-border flex flex-col items-center justify-center min-h-[90px]">
                                                     <div className="flex items-baseline leading-none mb-1">
-                                                        <span className="text-3xl font-black text-white tracking-tighter">
+                                                        <span className="text-3xl font-black text-foreground tracking-tighter">
                                                             {Math.floor((data?.acceptanceRate && data.acceptanceRate > 0) ? data.acceptanceRate : 84)}
                                                         </span>
-                                                        <span className="text-lg font-bold text-white/50 tracking-tighter">
+                                                        <span className="text-lg font-bold text-foreground/50 tracking-tighter">
                                                             .{(((data?.acceptanceRate && data.acceptanceRate > 0) ? data.acceptanceRate : 84.03) % 1).toFixed(2).split('.')[1]}%
                                                         </span>
                                                     </div>
-                                                    <p className="text-[11px] font-bold text-white/40 tracking-wide uppercase">Real Acceptance</p>
+                                                    <p className="text-[11px] font-bold text-foreground/40 tracking-wide uppercase">Real Acceptance</p>
                                                 </div>
                                             </div>
                                             <a href="https://leetcode.com/u/ghetiyanehil/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 w-full px-6 py-3 rounded-xl bg-primary/10 border border-primary/20 text-primary font-semibold hover:bg-primary hover:text-primary-foreground transition-all">
@@ -222,7 +224,7 @@ const LeetCodeSection = () => {
                                                     transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
                                                     className="w-44 h-44 relative z-10"
                                                 >
-                                                    <circle cx="88" cy="88" r="76" stroke="currentColor" strokeWidth="10" fill="transparent" className="text-white/5" />
+                                                    <circle cx="88" cy="88" r="76" stroke="currentColor" strokeWidth="10" fill="transparent" className="text-foreground/5" />
                                                     <motion.circle
                                                         cx="88" cy="88" r="76" stroke="currentColor" strokeWidth="10" fill="transparent"
                                                         strokeDasharray={477}
@@ -241,7 +243,7 @@ const LeetCodeSection = () => {
                                                         animate={{ opacity: 1, scale: 1 }}
                                                         className="flex flex-col items-center"
                                                     >
-                                                        <span className="text-5xl font-black text-white tracking-tighter">500+</span>
+                                                        <span className="text-5xl font-black text-foreground tracking-tighter">500+</span>
                                                         <span className="text-[11px] font-black uppercase tracking-[0.3em] text-primary/80 mt-1">Total Commits</span>
                                                     </motion.div>
                                                 </div>
@@ -251,20 +253,20 @@ const LeetCodeSection = () => {
                                             <p className="text-muted-foreground text-xs sm:text-sm mb-6 max-w-[260px] leading-relaxed italic">Crafting scalable digital ecosystems and contributing to open source.</p>
 
                                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6 w-full">
-                                                <div className="p-4 rounded-2xl bg-white/5 border border-white/10 text-center flex flex-col justify-center min-h-[80px]">
+                                                <div className="p-4 rounded-2xl bg-foreground/5 border border-border text-center flex flex-col justify-center min-h-[80px]">
                                                     <p className="text-[10px] uppercase tracking-widest text-muted-foreground mb-1 font-semibold">Public Repos</p>
-                                                    <p className="text-xl font-bold text-white tracking-tight">22+</p>
+                                                    <p className="text-xl font-bold text-foreground tracking-tight">22+</p>
                                                 </div>
-                                                <div className="p-4 rounded-2xl bg-white/5 border border-white/10 flex flex-col items-center justify-center min-h-[90px]">
+                                                <div className="p-4 rounded-2xl bg-foreground/5 border border-border flex flex-col items-center justify-center min-h-[90px]">
                                                     <div className="flex items-baseline leading-none mb-1">
-                                                        <span className="text-3xl font-black text-white tracking-tighter">50</span>
-                                                        <span className="text-lg font-bold text-white/50 tracking-tighter mx-1">+</span>
+                                                        <span className="text-3xl font-black text-foreground tracking-tighter">50</span>
+                                                        <span className="text-lg font-bold text-foreground/50 tracking-tighter mx-1">+</span>
                                                     </div>
-                                                    <p className="text-[11px] font-bold text-white/40 tracking-wide uppercase">Stars Earned</p>
+                                                    <p className="text-[11px] font-bold text-foreground/40 tracking-wide uppercase">Stars Earned</p>
                                                 </div>
                                             </div>
 
-                                            <a href="https://github.com/Nehilghetia" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 w-full px-5 py-4 rounded-2xl bg-white/5 border border-white/10 text-foreground font-black hover:bg-white/10 transition-all shadow-inner border-primary/10">
+                                            <a href="https://github.com/Nehilghetia" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 w-full px-5 py-4 rounded-2xl bg-foreground/5 border border-border text-foreground font-black hover:bg-foreground/10 transition-all shadow-inner border-primary/10">
                                                 @Nehilghetia <ExternalLink size={16} />
                                             </a>
                                         </motion.div>
@@ -286,11 +288,11 @@ const LeetCodeSection = () => {
                                     className="flex flex-col gap-6"
                                 >
                                     {difficulties.map((diff) => (
-                                        <div key={diff.label} className="glass px-4 sm:px-8 py-6 rounded-2xl border border-white/10 relative group overflow-hidden transition-all duration-500 hover:bg-white/[0.02]">
+                                        <div key={diff.label} className="glass px-4 sm:px-8 py-6 rounded-2xl border border-border/50 relative group overflow-hidden transition-all duration-500 hover:bg-foreground/[0.02]">
                                             <div className="absolute left-0 top-0 w-1 h-full" style={{ backgroundColor: diff.color }} />
                                             <div className="flex flex-col md:flex-row md:items-center gap-6 md:gap-12 relative z-10">
                                                 <div className="flex items-center gap-4 w-full md:w-[200px] shrink-0">
-                                                    <div className="p-3.5 rounded-xl bg-white/5 border border-white/10 group-hover:scale-110 transition-transform duration-500 shadow-xl">
+                                                    <div className="p-3.5 rounded-xl bg-foreground/5 border border-border group-hover:scale-110 transition-transform duration-500 shadow-xl">
                                                         <diff.icon size={22} style={{ color: diff.color }} />
                                                     </div>
                                                     <div className="min-w-0">
@@ -309,7 +311,7 @@ const LeetCodeSection = () => {
                                                             {diff.solved} <span className="opacity-20 mx-1">/</span> {diff.total}
                                                         </span>
                                                     </div>
-                                                    <div className="h-4 w-full bg-black/40 rounded-full overflow-hidden border border-white/5 p-[3px] relative">
+                                                    <div className="h-4 w-full bg-muted rounded-full overflow-hidden border border-border p-[3px] relative">
                                                         <motion.div
                                                             initial={{ width: 0 }}
                                                             animate={{ width: `${(diff.solved / diff.total) * 100}%` }}
@@ -345,9 +347,9 @@ const LeetCodeSection = () => {
                                                 <Activity className="text-primary" size={24} />
                                                 <h3 className="text-lg sm:text-xl font-bold">Contributions</h3>
                                             </div>
-                                            <span className="text-xs font-mono text-muted-foreground bg-white/5 px-3 py-1 rounded-full border border-white/10">@Nehilghetia</span>
+                                            <span className="text-xs font-mono text-muted-foreground bg-foreground/5 px-3 py-1 rounded-full border border-border">@Nehilghetia</span>
                                         </div>
-                                        <div className="relative rounded-2xl bg-black/40 p-4 border border-white/5 overflow-x-auto no-scrollbar shadow-inner min-h-[120px] flex items-center justify-center">
+                                        <div className="relative rounded-2xl bg-muted p-4 border border-border overflow-x-auto no-scrollbar shadow-inner min-h-[120px] flex items-center justify-center">
                                             <img
                                                 src="https://ghchart.rshah.org/00ffff/Nehilghetia"
                                                 alt="GitHub Contributions"
@@ -361,24 +363,24 @@ const LeetCodeSection = () => {
                                                 { label: "Global Stars", val: "50+" },
                                                 { label: "Followers", val: "25+" }
                                             ].map(stat => (
-                                                <div key={stat.label} className="p-4 rounded-2xl bg-white/5 border border-white/10 text-center hover:bg-white/10 transition-colors flex flex-col justify-center">
-                                                    <p className="text-[10px] text-white/40 uppercase font-black mb-1 tracking-wider">{stat.label}</p>
+                                                <div key={stat.label} className="p-4 rounded-2xl bg-foreground/5 border border-border text-center hover:bg-foreground/10 transition-colors flex flex-col justify-center">
+                                                    <p className="text-[10px] text-muted-foreground uppercase font-black mb-1 tracking-wider">{stat.label}</p>
                                                     <p className="text-xl font-bold text-primary">{stat.val}</p>
                                                 </div>
                                             ))}
                                         </div>
                                     </div>
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                        <div className="glass p-4 rounded-3xl border border-white/10 overflow-hidden flex items-center justify-center bg-black/20 group">
+                                        <div className="glass p-4 rounded-3xl border border-border/50 overflow-hidden flex items-center justify-center bg-muted/20 group">
                                             <img
-                                                src="https://github-readme-stats.vercel.app/api?username=Nehilghetia&show_icons=true&theme=transparent&hide_border=true&title_color=00ffff&text_color=ffffff&icon_color=00ffff&bg_color=00000000"
+                                                src={`https://github-readme-stats.vercel.app/api?username=Nehilghetia&show_icons=true&theme=transparent&hide_border=true&title_color=00ffff&text_color=${theme === 'light' ? '333333' : 'ffffff'}&icon_color=00ffff&bg_color=00000000`}
                                                 alt="GitHub Stats"
                                                 className="w-full max-w-sm group-hover:scale-[1.02] transition-transform"
                                             />
                                         </div>
-                                        <div className="glass p-4 rounded-3xl border border-white/10 overflow-hidden flex items-center justify-center bg-black/20 group">
+                                        <div className="glass p-4 rounded-3xl border border-border/50 overflow-hidden flex items-center justify-center bg-muted/20 group">
                                             <img
-                                                src="https://github-readme-stats.vercel.app/api/top-langs/?username=Nehilghetia&layout=compact&theme=transparent&hide_border=true&title_color=00ffff&text_color=ffffff&bg_color=00000000"
+                                                src={`https://github-readme-stats.vercel.app/api/top-langs/?username=Nehilghetia&layout=compact&theme=transparent&hide_border=true&title_color=00ffff&text_color=${theme === 'light' ? '333333' : 'ffffff'}&bg_color=00000000`}
                                                 alt="Top Languages"
                                                 className="w-full max-w-sm group-hover:scale-[1.02] transition-transform"
                                             />

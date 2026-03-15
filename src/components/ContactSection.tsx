@@ -85,7 +85,7 @@ const ContactSection = () => {
 
         {/* Top Header */}
         <div data-gsap="fade-up" className="flex flex-col items-center justify-center text-center space-y-6 mb-16">
-          <div className="px-4 py-1.5 rounded-full border border-white/10 text-xs font-bold tracking-wider text-muted-foreground uppercase bg-secondary/50 shadow-sm">
+          <div className="px-4 py-1.5 rounded-full border border-border/50 text-xs font-bold tracking-wider text-muted-foreground uppercase bg-secondary/50 shadow-sm">
             Let's build something together
           </div>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight">
@@ -93,9 +93,9 @@ const ContactSection = () => {
           </h2>
           <div className="h-1 w-20 bg-gradient-to-r from-primary to-neon-purple rounded-full" />
           <div className="flex flex-wrap items-center justify-center gap-3">
-            <span className="px-5 py-2 rounded-full border border-white/10 text-sm font-medium text-muted-foreground bg-secondary/30">Replies in under 24h</span>
-            <span className="px-5 py-2 rounded-full border border-white/10 text-sm font-medium text-muted-foreground bg-secondary/30">Open to remote</span>
-            <span className="px-5 py-2 rounded-full border border-white/10 text-sm font-medium text-muted-foreground bg-secondary/30">Product, SaaS, and platforms</span>
+            <span className="px-5 py-2 rounded-full border border-border/50 text-sm font-medium text-muted-foreground bg-secondary/30">Replies in under 24h</span>
+            <span className="px-5 py-2 rounded-full border border-border/50 text-sm font-medium text-muted-foreground bg-secondary/30">Open to remote</span>
+            <span className="px-5 py-2 rounded-full border border-border/50 text-sm font-medium text-muted-foreground bg-secondary/30">Product, SaaS, and platforms</span>
           </div>
         </div>
 
@@ -128,13 +128,13 @@ const ContactSection = () => {
             </div>
 
             <div className="flex gap-4 mb-10 mt-auto">
-              <button onClick={handleActionClick} className="flex-1 py-3.5 rounded-xl bg-secondary/80 border border-white/5 text-foreground font-bold hover:bg-secondary transition-all shadow-lg text-sm">
+              <button onClick={handleActionClick} className="flex-1 py-3.5 rounded-xl bg-secondary/80 border border-border/50 text-foreground font-bold hover:bg-secondary transition-all shadow-lg text-sm">
                 Email me
               </button>
 
             </div>
 
-            <div className="flex gap-5 pt-6 border-t border-white/10">
+            <div className="flex gap-5 pt-6 border-t border-border/50">
               <a href="https://github.com/nehilghetia" target="_blank" rel="noreferrer"><Github size={18} className="text-muted-foreground hover:text-foreground transition-colors" /></a>
               <a href="https://linkedin.com/in/nehilghetia" target="_blank" rel="noreferrer"><Linkedin size={18} className="text-muted-foreground hover:text-foreground transition-colors" /></a>
               <a href="https://www.youtube.com/@Nehilghetia" target="_blank" rel="noreferrer"><Youtube size={18} className="text-muted-foreground hover:text-foreground transition-colors" /></a>
@@ -148,15 +148,15 @@ const ContactSection = () => {
             {/* Subtle internal gradient spotlight effect */}
 
             <div className="flex flex-wrap items-center justify-between gap-4 mb-8">
-              <span className="px-4 py-1.5 rounded-full border border-white/10 text-[11px] font-bold tracking-wider text-muted-foreground uppercase bg-secondary/30">
+              <span className="px-4 py-1.5 rounded-full border border-border/50 text-[11px] font-bold tracking-wider text-muted-foreground uppercase bg-secondary/30">
                 Project Intake
               </span>
-              <span className="px-4 py-1.5 rounded-full border border-white/10 text-xs font-bold text-muted-foreground bg-secondary/10">
+              <span className="px-4 py-1.5 rounded-full border border-border/50 text-xs font-bold text-muted-foreground bg-secondary/10">
                 Step {step} of 4
               </span>
             </div>
 
-            <h3 className="text-3xl font-extrabold mb-8 border-b border-white/10 pb-6">Tell me about it</h3>
+            <h3 className="text-3xl font-extrabold mb-8 border-b border-border/50 pb-6">Tell me about it</h3>
 
             {/* Stepper bubbles */}
             <div className="flex flex-wrap items-center gap-6 mb-10 overflow-x-auto custom-scrollbar pb-2">
@@ -172,7 +172,7 @@ const ContactSection = () => {
                       ? 'bg-primary text-primary-foreground shadow-[0_0_15px_rgba(var(--primary),0.5)]'
                       : step > s.id
                         ? 'bg-primary/10 text-primary border border-primary/30 group-hover:bg-primary/20'
-                        : 'bg-secondary text-muted-foreground border border-white/10 group-hover:bg-secondary/80'
+                        : 'bg-secondary text-muted-foreground border border-border/50 group-hover:bg-secondary/80'
                       }`}
                   >
                     {s.id}
@@ -206,7 +206,7 @@ const ContactSection = () => {
                       placeholder={currentStepInfo.placeholder}
                       value={form[currentStepInfo.field as keyof typeof form]}
                       onChange={(e) => setForm({ ...form, [currentStepInfo.field]: e.target.value })}
-                      className="w-full bg-secondary/20 border border-white/10 rounded-2xl p-5 text-foreground placeholder-muted-foreground focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/20 transition-all resize-none text-base"
+                      className="w-full bg-secondary/20 border border-border/50 rounded-2xl p-5 text-foreground placeholder-muted-foreground focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/20 transition-all resize-none text-base"
                       required
                     />
                   ) : (
@@ -215,7 +215,7 @@ const ContactSection = () => {
                       placeholder={currentStepInfo.placeholder}
                       value={form[currentStepInfo.field as keyof typeof form]}
                       onChange={(e) => setForm({ ...form, [currentStepInfo.field]: e.target.value })}
-                      className="w-full bg-secondary/20 border border-white/10 rounded-2xl p-5 text-foreground placeholder-muted-foreground focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/20 transition-all text-base"
+                      className="w-full bg-secondary/20 border border-border/50 rounded-2xl p-5 text-foreground placeholder-muted-foreground focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/20 transition-all text-base"
                       required={currentStepInfo.field !== 'subject'}
                     />
                   )}
@@ -228,7 +228,7 @@ const ContactSection = () => {
                   <button
                     type="button"
                     onClick={prevStep}
-                    className="px-8 py-3 rounded-xl bg-secondary/40 border border-white/5 text-foreground font-semibold hover:bg-secondary/80 transition-all text-sm"
+                    className="px-8 py-3 rounded-xl bg-secondary/40 border border-border/50 text-foreground font-semibold hover:bg-secondary/80 transition-all text-sm"
                   >
                     Back
                   </button>

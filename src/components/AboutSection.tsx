@@ -93,14 +93,14 @@ const AboutSection = () => {
               <div className="absolute -inset-4 bg-neon-purple/20 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition duration-700 delay-100" />
 
               {/* Photo Frame with Gradient Corner */}
-              <div className="relative p-1 rounded-[2rem] bg-gradient-to-br from-primary/40 via-transparent to-neon-purple/40 border border-white/10 group-hover:border-primary/30 transition-all duration-500">
+              <div className="relative p-1 rounded-[2rem] bg-gradient-to-br from-primary/40 via-transparent to-neon-purple/40 border border-border shadow-2xl shadow-foreground/5 group-hover:border-primary/30 transition-all duration-500">
                 <div className="relative glass rounded-[1.8rem] overflow-hidden aspect-[4/5]">
                   <img
                     src="/nehil.jpg"
                     alt="Nehil Ghetia"
                     className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/40 to-transparent opacity-60" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent opacity-40" />
                 </div>
               </div>
 
@@ -110,7 +110,7 @@ const AboutSection = () => {
 
               {/* Tiny Float Card */}
               <motion.div
-                className="absolute -bottom-2 -left-2 glass px-4 py-2 rounded-lg border border-white/10 shadow-xl"
+                className="absolute -bottom-2 -left-2 glass px-4 py-2 rounded-lg border border-border/50 shadow-xl"
                 animate={{ y: [0, -5, 0] }}
                 transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
               >
@@ -159,7 +159,7 @@ const AboutSection = () => {
               {stats.map((stat, index) => (
                 <motion.div
                   key={stat.label}
-                  className="group relative glass p-6 rounded-xl border border-white/10 hover:border-primary/30 transition-all overflow-hidden"
+                  className="group relative glass p-6 rounded-xl border border-border/50 hover:border-primary/30 transition-all overflow-hidden"
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={isInView ? { opacity: 1, scale: 1 } : {}}
                   transition={{ duration: 0.5, delay: 1 + index * 0.1 }}

@@ -140,7 +140,7 @@ const AchievementsSection = () => {
               style={{ perspective: "1000px" }}
             >
               <motion.div
-                className="relative glass p-8 rounded-2xl border border-white/10 hover:border-primary/30 transition-all h-full overflow-hidden"
+                className="relative glass p-8 rounded-2xl border border-border hover:border-primary/30 shadow-lg shadow-foreground/5 transition-all h-full overflow-hidden"
                 whileHover={{ y: -10, scale: 1.02 }}
                 transition={{ duration: 0.3 }}
               >

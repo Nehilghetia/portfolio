@@ -165,7 +165,7 @@ const HeroSection = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 href="#projects"
-                className="inline-flex items-center gap-2 px-8 py-4 rounded-xl border border-white/10 hover:border-primary/50 text-foreground font-bold glass transition-all"
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-xl border border-border/50 hover:border-primary/50 text-foreground font-bold glass transition-all"
               >
                 View Projects <span>→</span>
               </motion.a>
@@ -190,7 +190,7 @@ const HeroSection = () => {
                     rel="noopener noreferrer"
                     aria-label={s.label}
                     whileHover={{ scale: 1.2, y: -2 }}
-                    className="w-10 h-10 rounded-lg glass border border-white/5 flex items-center justify-center text-muted-foreground hover:text-primary transition-all"
+                    className="w-10 h-10 rounded-lg glass border border-border/50 flex items-center justify-center text-muted-foreground hover:text-primary transition-all"
                   >
                     <s.icon size={20} />
                   </motion.a>
@@ -219,7 +219,7 @@ const HeroSection = () => {
               <motion.div
                 animate={{ rotate: -360 }}
                 transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
-                className="absolute inset-[-25%] border border-dashed border-white/5 rounded-full"
+                className="absolute inset-[-25%] border border-dashed border-border/50 rounded-full"
               />
 
               {/* Orbiting Tech Icons */}
@@ -236,7 +236,7 @@ const HeroSection = () => {
                   transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
                 >
                   <motion.div
-                    className="p-3 rounded-xl glass border border-white/10 text-primary shadow-lg"
+                    className="p-3 rounded-xl glass border border-border/50 text-primary shadow-lg"
                     animate={{ rotate: -360 }}
                     transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
                   >
@@ -247,12 +247,12 @@ const HeroSection = () => {
 
               {/* Central Photo Container - Circular */}
               <div className="relative w-full h-full p-1 rounded-full bg-gradient-to-b from-primary/50 to-neon-purple/50 shadow-[0_0_50px_rgba(var(--primary-rgb),0.2)]">
-                <div className="w-full h-full glass !rounded-full overflow-hidden relative border-2 border-white/10 aspect-square">
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/40 via-transparent to-transparent z-10" />
+                <div className="w-full h-full glass !rounded-full overflow-hidden relative border-2 border-border/50 aspect-square">
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/20 via-transparent to-transparent z-10" />
                   <img
                     src="/nehil.jpg"
                     alt="Nehil Ghetia"
-                    className="w-full h-full object-cover grayscale-[10%] hover:grayscale-0 transition-all duration-700 transform hover:scale-110 !rounded-full"
+                    className="w-full h-full object-cover transition-all duration-700 transform hover:scale-110 !rounded-full"
                   />
                 </div>
               </div>

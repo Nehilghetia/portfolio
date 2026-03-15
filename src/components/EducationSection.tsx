@@ -24,7 +24,7 @@ const educationData = [
     {
         degree: "Secondary Education (SSC)",
         institution: "Mother's Pride School",
-        duration: "2015 – 2022",
+        duration: "2020 – 2022",
         location: "Upleta, Gujarat, India",
         details: "Completed secondary education with focus on foundational academic excellence and core subjects.",
     }
