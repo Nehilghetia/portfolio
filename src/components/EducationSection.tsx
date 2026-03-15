@@ -10,7 +10,7 @@ const educationData = [
     {
         degree: "Bachelor of Technology (B.Tech) in Information Technology (IT)",
         institution: "CodingGita × Rai University",
-        duration: "2025 – 2029",
+        duration: "2025 – 2028",
         location: "Ahmedabad, Gujarat, India",
         details: "Currently pursuing B.Tech with a focus on Information Technology, modern web development, and software engineering. Actively building scalable systems and mastering data management.",
     },

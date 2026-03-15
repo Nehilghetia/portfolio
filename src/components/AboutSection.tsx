@@ -60,7 +60,7 @@ const AboutSection = () => {
   }, [leetcodeSolved]);
 
   const stats = [
-    { icon: Code, value: 50, label: "Projects Completed", suffix: "+" },
+    { icon: Code, value: 4, label: "Projects Completed", suffix: "+" },
     { icon: Rocket, value: 3, label: "Years Experience", suffix: "+" },
     { icon: Smile, value: 100, label: "Client Satisfaction", suffix: "%" },
     { icon: Sparkles, value: leetcodeSolved, label: "LeetCode Problems", suffix: "+" },

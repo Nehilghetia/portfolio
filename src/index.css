@@ -153,10 +153,12 @@
 @layer utilities {
   .glass {
     @apply bg-card/60 backdrop-blur-xl border border-glass-border rounded-xl;
+    -webkit-backdrop-filter: blur(24px);
   }
 
   .glass-strong {
     @apply bg-card/80 backdrop-blur-2xl border border-glass-border rounded-xl;
+    -webkit-backdrop-filter: blur(40px);
   }
 
   .neon-text {
