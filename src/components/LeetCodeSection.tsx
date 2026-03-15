@@ -63,7 +63,8 @@ const LeetCodeSection = () => {
     }
 
     const getDifficultyTotal = (difficulty: string) => {
-        return data?.allQuestionsCount?.find(q => q.difficulty === difficulty)?.count || 0;
+        return data?.allQuestionsCount?.find(q => q.difficulty?.toLowerCase() === difficulty.toLowerCase())?.count ||
+            (difficulty.toLowerCase() === "easy" ? 932 : difficulty.toLowerCase() === "medium" ? 2026 : 915);
     };
 
     const difficulties = [
@@ -120,7 +121,6 @@ const LeetCodeSection = () => {
                 <div className="grid lg:grid-cols-12 gap-8 items-start">
                     {/* Left Side: Navigation & Summary */}
                     <div className="lg:col-span-4 flex flex-col gap-6">
-                        {/* Tab Switcher - Side Option Select */}
                         <div className="glass p-2 rounded-2xl border border-white/10 flex flex-col gap-2">
                             <button
                                 onClick={() => setActiveTab("leetcode")}
@@ -138,7 +138,6 @@ const LeetCodeSection = () => {
                             </button>
                         </div>
 
-                        {/* Summary Card */}
                         <div className="glass p-5 sm:p-8 rounded-3xl border border-white/10 relative group overflow-hidden">
                             <div className="relative z-10 text-center flex flex-col items-center">
                                 <AnimatePresence mode="wait">
@@ -149,27 +148,59 @@ const LeetCodeSection = () => {
                                             animate={{ opacity: 1, y: 0 }}
                                             exit={{ opacity: 0, y: -10 }}
                                         >
-                                            <div className="mb-6 relative inline-block">
-                                                <motion.div
-                                                    className="w-32 h-32 rounded-full border-4 border-primary/20 border-t-primary flex items-center justify-center"
+                                            <div className="mb-8 relative inline-flex items-center justify-center group">
+                                                {/* Animated outer glow */}
+                                                <div className="absolute inset-0 bg-primary/20 blur-[30px] rounded-full scale-90 group-hover:scale-110 transition-transform duration-1000 animate-pulse" />
+
+                                                <motion.svg
                                                     animate={{ rotate: 360 }}
-                                                    transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-                                                />
-                                                <div className="absolute inset-0 flex flex-col items-center justify-center">
-                                                    <span className="text-4xl font-bold text-foreground">{data?.solvedProblem || 0}</span>
-                                                    <span className="text-[10px] uppercase tracking-tighter text-muted-foreground">Solved</span>
+                                                    transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                                                    className="w-44 h-44 relative z-10"
+                                                >
+                                                    <circle cx="88" cy="88" r="76" stroke="currentColor" strokeWidth="10" fill="transparent" className="text-white/5" />
+                                                    <motion.circle
+                                                        cx="88" cy="88" r="76" stroke="currentColor" strokeWidth="10" fill="transparent"
+                                                        strokeDasharray={477}
+                                                        initial={{ strokeDashoffset: 477 }}
+                                                        animate={{ strokeDashoffset: 477 - (477 * (data?.solvedProblem || 0)) / (data?.totalQuestions || 3290) }}
+                                                        transition={{ duration: 2.5, ease: "easeOut" }}
+                                                        className="text-primary"
+                                                        strokeLinecap="round"
+                                                        style={{ filter: "drop-shadow(0 0 8px var(--primary))" }}
+                                                    />
+                                                </motion.svg>
+
+                                                <div className="absolute inset-0 flex flex-col items-center justify-center z-20">
+                                                    <motion.span
+                                                        initial={{ opacity: 0, scale: 0.5 }}
+                                                        animate={{ opacity: 1, scale: 1 }}
+                                                        className="text-5xl font-black text-white tracking-tighter drop-shadow-2xl"
+                                                    >
+                                                        {data?.solvedProblem || 0}
+                                                    </motion.span>
+                                                    <span className="text-[11px] font-black uppercase tracking-[0.3em] text-primary/80 mt-1">Problems Solved</span>
                                                 </div>
                                             </div>
-                                            <h3 className="text-xl sm:text-2xl font-bold mb-2 break-words">Algorithm Master</h3>
-                                            <p className="text-muted-foreground text-xs sm:text-sm mb-6 leading-relaxed">
-                                                Optimizing algorithms and solving complex DSA challenges.
-                                            </p>
-                                            <a
-                                                href="https://leetcode.com/u/ghetiyanehil/"
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                className="inline-flex items-center justify-center gap-2 w-full px-6 py-3 rounded-xl bg-primary/10 border border-primary/20 text-primary font-semibold hover:bg-primary hover:text-primary-foreground transition-all group/btn"
-                                            >
+                                            <h3 className="text-xl sm:text-2xl font-bold mb-2">Algorithm Master</h3>
+                                            <p className="text-muted-foreground text-xs sm:text-sm mb-6">Optimizing algorithms and solving complex DSA challenges.</p>
+                                            <div className="grid grid-cols-2 gap-4 mb-6">
+                                                <div className="p-3 rounded-2xl bg-white/5 border border-white/10 text-center">
+                                                    <p className="text-[10px] uppercase tracking-widest text-muted-foreground mb-1 font-semibold">Ranking</p>
+                                                    <p className="text-lg font-bold text-white tracking-tight">{data?.ranking || "N/A"}</p>
+                                                </div>
+                                                <div className="p-4 rounded-2xl bg-white/5 border border-white/10 flex flex-col items-center justify-center min-h-[100px]">
+                                                    <div className="flex items-baseline leading-none mb-2">
+                                                        <span className="text-4xl font-black text-white tracking-tighter">
+                                                            {Math.floor((data?.acceptanceRate && data.acceptanceRate > 0) ? data.acceptanceRate : 84)}
+                                                        </span>
+                                                        <span className="text-xl font-bold text-white/50 tracking-tighter">
+                                                            .{(((data?.acceptanceRate && data.acceptanceRate > 0) ? data.acceptanceRate : 84.03) % 1).toFixed(2).split('.')[1]}%
+                                                        </span>
+                                                    </div>
+                                                    <p className="text-[12px] font-bold text-white/40 tracking-wide uppercase">Acceptance</p>
+                                                </div>
+                                            </div>
+                                            <a href="https://leetcode.com/u/ghetiyanehil/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 w-full px-6 py-3 rounded-xl bg-primary/10 border border-primary/20 text-primary font-semibold hover:bg-primary hover:text-primary-foreground transition-all">
                                                 Full Profile <ExternalLink size={16} />
                                             </a>
                                         </motion.div>
@@ -183,16 +214,9 @@ const LeetCodeSection = () => {
                                             <div className="mb-6 relative inline-block p-4 rounded-full bg-white/5 border border-white/10">
                                                 <Github size={64} className="text-primary animate-pulse" />
                                             </div>
-                                            <h3 className="text-xl sm:text-2xl font-bold mb-2 break-words">Code Architect</h3>
-                                            <p className="text-muted-foreground text-xs sm:text-sm mb-6 leading-relaxed">
-                                                Building awesome projects and contributing to open source.
-                                            </p>
-                                            <a
-                                                href="https://github.com/Nehilghetia"
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                className="inline-flex items-center justify-center gap-2 w-full px-6 py-3 rounded-xl bg-white/5 border border-white/10 text-foreground font-semibold hover:bg-white/10 transition-all group/btn"
-                                            >
+                                            <h3 className="text-xl sm:text-2xl font-bold mb-2">Code Architect</h3>
+                                            <p className="text-muted-foreground text-xs sm:text-sm mb-6">Building awesome projects and contributing to open source.</p>
+                                            <a href="https://github.com/Nehilghetia" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 w-full px-6 py-3 rounded-xl bg-white/5 border border-white/10 text-foreground font-semibold hover:bg-white/10 transition-all">
                                                 @Nehilghetia <ExternalLink size={16} />
                                             </a>
                                         </motion.div>
@@ -214,43 +238,45 @@ const LeetCodeSection = () => {
                                     className="flex flex-col gap-6"
                                 >
                                     {difficulties.map((diff) => (
-                                        <div
-                                            key={diff.label}
-                                            className="glass p-6 rounded-2xl border border-white/10 relative group overflow-hidden"
-                                        >
-                                            <div
-                                                className="absolute left-0 top-0 w-1 h-full"
-                                                style={{ backgroundColor: diff.color }}
-                                            />
-                                            <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
-                                                <div className="flex items-center gap-4">
-                                                    <div className="p-3 rounded-xl bg-white/5 border border-white/10 group-hover:scale-110 transition-transform duration-300">
-                                                        <diff.icon size={24} style={{ color: diff.color }} />
+                                        <div key={diff.label} className="glass px-6 sm:px-10 py-8 rounded-3xl border border-white/10 relative group overflow-hidden transition-all duration-500 hover:bg-white/[0.02]">
+                                            <div className="absolute left-0 top-0 w-1 h-full" style={{ backgroundColor: diff.color }} />
+                                            <div className="flex flex-col md:flex-row md:items-center gap-8 md:gap-12 relative z-10">
+                                                <div className="flex items-center gap-5 w-full md:w-[220px] shrink-0">
+                                                    <div className="p-4 rounded-2xl bg-white/5 border border-white/10 group-hover:scale-110 transition-transform duration-500 shadow-xl">
+                                                        <diff.icon size={26} style={{ color: diff.color }} />
                                                     </div>
-                                                    <div>
-                                                        <h4 className="font-bold text-lg">{diff.label}</h4>
-                                                        <p className="text-xs text-muted-foreground">{diff.desc}</p>
+                                                    <div className="min-w-0">
+                                                        <h4 className="font-bold text-xl tracking-tight truncate">{diff.label}</h4>
+                                                        <p className="text-[10px] text-muted-foreground font-bold uppercase tracking-widest">{diff.desc}</p>
                                                     </div>
                                                 </div>
-                                                <div className="flex-1 max-w-md">
-                                                    <div className="flex justify-between text-sm mb-2 font-mono">
-                                                        <span className="text-muted-foreground">Progress</span>
-                                                        <span className="text-foreground font-bold">{diff.solved} <span className="text-muted-foreground">/ {diff.total}</span></span>
+
+                                                <div className="flex-1 w-full max-w-xl">
+                                                    <div className="flex justify-between text-[11px] font-mono uppercase tracking-[0.15em] font-black mb-2 px-1">
+                                                        <span className="text-muted-foreground/60 flex items-center gap-2">
+                                                            <div className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: diff.color }} />
+                                                            Progress
+                                                        </span>
+                                                        <span className="text-foreground tracking-tight text-sm font-semibold">
+                                                            {diff.solved} <span className="opacity-20 mx-1">/</span> {diff.total}
+                                                        </span>
                                                     </div>
-                                                    <div className="h-2 w-full bg-white/5 rounded-full overflow-hidden">
-                                                        <div
-                                                            className="h-full rounded-full transition-all duration-1000"
-                                                            style={{
-                                                                width: data ? `${(diff.solved / diff.total) * 100}%` : "0%",
-                                                                backgroundColor: diff.color,
-                                                                boxShadow: `0 0 10px ${diff.color}40`
-                                                            }}
-                                                        />
+                                                    <div className="h-4 w-full bg-black/40 rounded-full overflow-hidden border border-white/5 p-[3px] relative">
+                                                        <motion.div
+                                                            initial={{ width: 0 }}
+                                                            animate={{ width: `${(diff.solved / diff.total) * 100}%` }}
+                                                            className="h-full rounded-full relative z-10"
+                                                            style={{ backgroundColor: diff.color, boxShadow: `0 0 20px ${diff.color}50` }}
+                                                        >
+                                                            <div className="absolute inset-0 bg-white/20 animate-pulse" />
+                                                            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+                                                        </motion.div>
                                                     </div>
                                                 </div>
-                                                <div className="hidden md:block">
-                                                    <div className="text-2xl font-bold font-mono" style={{ color: diff.color }}>
-                                                        {data ? Math.round((diff.solved / diff.total) * 100) : 0}%
+
+                                                <div className="flex items-baseline justify-end shrink-0 md:min-w-[80px]">
+                                                    <div className="text-3xl md:text-4xl font-bold font-mono tracking-tighter leading-none" style={{ color: diff.color }}>
+                                                        {Math.round((diff.solved / diff.total) * 100)}%
                                                     </div>
                                                 </div>
                                             </div>
@@ -265,7 +291,6 @@ const LeetCodeSection = () => {
                                     exit={{ opacity: 0, x: -20 }}
                                     className="flex flex-col gap-6"
                                 >
-                                    {/* GitHub Contribution Graph */}
                                     <div className="glass p-8 rounded-3xl border border-white/10 overflow-hidden relative group">
                                         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
                                             <div className="flex items-center gap-3">
@@ -274,50 +299,24 @@ const LeetCodeSection = () => {
                                             </div>
                                             <span className="text-xs sm:text-sm font-mono text-muted-foreground">@Nehilghetia</span>
                                         </div>
-
                                         <div className="relative rounded-xl bg-black/20 p-4 border border-white/5 overflow-x-auto custom-scrollbar">
-                                            <img
-                                                src="https://ghchart.rshah.org/Nehilghetia"
-                                                alt="GitHub Contributions"
-                                                className="min-w-[600px] md:min-w-0 w-full h-auto invert dark:invert-0 opacity-80 group-hover:opacity-100 transition-opacity"
-                                            />
+                                            <img src="https://ghchart.rshah.org/Nehilghetia" alt="GitHub Contributions" className="min-w-[600px] md:min-w-0 w-full h-auto opacity-80 group-hover:opacity-100 transition-opacity" />
                                         </div>
-
-                                        <div className="mt-8 grid grid-cols-1 xs:grid-cols-2 md:grid-cols-4 gap-4">
-                                            <div className="p-4 rounded-xl bg-white/5 border border-white/10 text-center flex flex-col items-center justify-center">
-                                                <p className="text-[10px] sm:text-xs text-muted-foreground uppercase mb-1 font-bold tracking-wider">Commits</p>
-                                                <p className="text-lg sm:text-xl font-bold text-primary">500+</p>
-                                            </div>
-                                            <div className="p-4 rounded-xl bg-white/5 border border-white/10 text-center flex flex-col items-center justify-center">
-                                                <p className="text-[10px] sm:text-xs text-muted-foreground uppercase mb-1 font-bold tracking-wider">Repositories</p>
-                                                <p className="text-lg sm:text-xl font-bold text-primary">20+</p>
-                                            </div>
-                                            <div className="p-4 rounded-xl bg-white/5 border border-white/10 text-center flex flex-col items-center justify-center">
-                                                <p className="text-[10px] sm:text-xs text-muted-foreground uppercase mb-1 font-bold tracking-wider">Stars</p>
-                                                <p className="text-lg sm:text-xl font-bold text-primary">50+</p>
-                                            </div>
-                                            <div className="p-4 rounded-xl bg-white/5 border border-white/10 text-center flex flex-col items-center justify-center">
-                                                <p className="text-[10px] sm:text-xs text-muted-foreground uppercase mb-1 font-bold tracking-wider">Followers</p>
-                                                <p className="text-lg sm:text-xl font-bold text-primary">25+</p>
-                                            </div>
+                                        <div className="mt-8 grid grid-cols-2 lg:grid-cols-4 gap-4">
+                                            {[{ label: "Commits", val: "500+" }, { label: "Repos", val: "20+" }, { label: "Stars", val: "50+" }, { label: "Followers", val: "25+" }].map(stat => (
+                                                <div key={stat.label} className="p-4 rounded-xl bg-white/5 border border-white/10 text-center">
+                                                    <p className="text-[10px] text-muted-foreground uppercase font-bold mb-1">{stat.label}</p>
+                                                    <p className="text-lg font-bold text-primary">{stat.val}</p>
+                                                </div>
+                                            ))}
                                         </div>
                                     </div>
-
-                                    {/* GitHub Stats Cards */}
                                     <div className="grid md:grid-cols-2 gap-6">
                                         <div className="glass p-6 rounded-2xl border border-white/10 overflow-hidden flex items-center justify-center">
-                                            <img
-                                                src="https://github-readme-stats.vercel.app/api?username=Nehilghetia&show_icons=true&theme=transparent&hide_border=true&title_color=00ffff&text_color=ffffff&icon_color=00ffff"
-                                                alt="GitHub Stats"
-                                                className="w-full"
-                                            />
+                                            <img src="https://github-readme-stats.vercel.app/api?username=Nehilghetia&show_icons=true&theme=transparent&hide_border=true&title_color=00ffff&text_color=ffffff&icon_color=00ffff" alt="GitHub Stats" className="w-full" />
                                         </div>
                                         <div className="glass p-6 rounded-2xl border border-white/10 overflow-hidden flex items-center justify-center">
-                                            <img
-                                                src="https://github-readme-stats.vercel.app/api/top-langs/?username=Nehilghetia&layout=compact&theme=transparent&hide_border=true&title_color=00ffff&text_color=ffffff"
-                                                alt="Top Languages"
-                                                className="w-full"
-                                            />
+                                            <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Nehilghetia&layout=compact&theme=transparent&hide_border=true&title_color=00ffff&text_color=ffffff" alt="Top Languages" className="w-full" />
                                         </div>
                                     </div>
                                 </motion.div>

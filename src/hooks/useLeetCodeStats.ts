@@ -5,6 +5,9 @@ interface LeetCodeData {
     easySolved: number;
     mediumSolved: number;
     hardSolved: number;
+    totalQuestions: number;
+    ranking: number | string;
+    acceptanceRate: number;
     allQuestionsCount: { difficulty: string; count: number }[];
 }
 
@@ -42,10 +45,13 @@ export const useLeetCodeStats = (username: string = "ghetiyanehil") => {
                         easySolved: json.easySolved || json.easy_solved || 0,
                         mediumSolved: json.mediumSolved || json.medium_solved || 0,
                         hardSolved: json.hardSolved || json.hard_solved || 0,
+                        totalQuestions: json.totalQuestions || json.total_questions || 3290,
+                        ranking: json.ranking || "N/A",
+                        acceptanceRate: json.acceptanceRate || json.acceptance_rate || json.acceptance || 0,
                         allQuestionsCount: json.allQuestionsCount || json.all_questions_count || [
-                            { difficulty: "Easy", count: 800 },
-                            { difficulty: "Medium", count: 1600 },
-                            { difficulty: "Hard", count: 700 }
+                            { difficulty: "Easy", count: 932 },
+                            { difficulty: "Medium", count: 2026 },
+                            { difficulty: "Hard", count: 915 }
                         ]
                     };
 
@@ -69,10 +75,13 @@ export const useLeetCodeStats = (username: string = "ghetiyanehil") => {
                     easySolved: 85,
                     mediumSolved: 72,
                     hardSolved: 8,
+                    totalQuestions: 3290,
+                    ranking: "1,234,567",
+                    acceptanceRate: 54.2,
                     allQuestionsCount: [
-                        { difficulty: "Easy", count: 831 },
-                        { difficulty: "Medium", count: 1735 },
-                        { difficulty: "Hard", count: 752 }
+                        { difficulty: "Easy", count: 932 },
+                        { difficulty: "Medium", count: 2026 },
+                        { difficulty: "Hard", count: 915 }
                     ]
                 };
                 setData(fallbackData);
