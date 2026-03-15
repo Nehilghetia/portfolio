@@ -139,8 +139,8 @@ const LeetCodeSection = () => {
                         </div>
 
                         {/* Summary Card */}
-                        <div className="glass p-8 rounded-3xl border border-white/10 relative group overflow-hidden">
-                            <div className="relative z-10 text-center">
+                        <div className="glass p-5 sm:p-8 rounded-3xl border border-white/10 relative group overflow-hidden">
+                            <div className="relative z-10 text-center flex flex-col items-center">
                                 <AnimatePresence mode="wait">
                                     {activeTab === "leetcode" ? (
                                         <motion.div
@@ -160,8 +160,8 @@ const LeetCodeSection = () => {
                                                     <span className="text-[10px] uppercase tracking-tighter text-muted-foreground">Solved</span>
                                                 </div>
                                             </div>
-                                            <h3 className="text-2xl font-bold mb-2">Algorithm Master</h3>
-                                            <p className="text-muted-foreground text-sm mb-6">
+                                            <h3 className="text-xl sm:text-2xl font-bold mb-2 break-words">Algorithm Master</h3>
+                                            <p className="text-muted-foreground text-xs sm:text-sm mb-6 leading-relaxed">
                                                 Optimizing algorithms and solving complex DSA challenges.
                                             </p>
                                             <a
@@ -183,8 +183,8 @@ const LeetCodeSection = () => {
                                             <div className="mb-6 relative inline-block p-4 rounded-full bg-white/5 border border-white/10">
                                                 <Github size={64} className="text-primary animate-pulse" />
                                             </div>
-                                            <h3 className="text-2xl font-bold mb-2">Code Architect</h3>
-                                            <p className="text-muted-foreground text-sm mb-6">
+                                            <h3 className="text-xl sm:text-2xl font-bold mb-2 break-words">Code Architect</h3>
+                                            <p className="text-muted-foreground text-xs sm:text-sm mb-6 leading-relaxed">
                                                 Building awesome projects and contributing to open source.
                                             </p>
                                             <a
@@ -267,12 +267,12 @@ const LeetCodeSection = () => {
                                 >
                                     {/* GitHub Contribution Graph */}
                                     <div className="glass p-8 rounded-3xl border border-white/10 overflow-hidden relative group">
-                                        <div className="flex items-center justify-between mb-8">
+                                        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
                                             <div className="flex items-center gap-3">
                                                 <Activity className="text-primary" size={24} />
-                                                <h3 className="text-xl font-bold">Contribution Timeline</h3>
+                                                <h3 className="text-lg sm:text-xl font-bold">Contribution Timeline</h3>
                                             </div>
-                                            <span className="text-sm font-mono text-muted-foreground">Nehilghetia</span>
+                                            <span className="text-xs sm:text-sm font-mono text-muted-foreground">@Nehilghetia</span>
                                         </div>
 
                                         <div className="relative rounded-xl bg-black/20 p-4 border border-white/5 overflow-x-auto custom-scrollbar">
@@ -283,22 +283,22 @@ const LeetCodeSection = () => {
                                             />
                                         </div>
 
-                                        <div className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4">
-                                            <div className="p-4 rounded-xl bg-white/5 border border-white/10 text-center">
-                                                <p className="text-xs text-muted-foreground uppercase mb-1">Commits</p>
-                                                <p className="text-xl font-bold text-primary">500+</p>
+                                        <div className="mt-8 grid grid-cols-1 xs:grid-cols-2 md:grid-cols-4 gap-4">
+                                            <div className="p-4 rounded-xl bg-white/5 border border-white/10 text-center flex flex-col items-center justify-center">
+                                                <p className="text-[10px] sm:text-xs text-muted-foreground uppercase mb-1 font-bold tracking-wider">Commits</p>
+                                                <p className="text-lg sm:text-xl font-bold text-primary">500+</p>
                                             </div>
-                                            <div className="p-4 rounded-xl bg-white/5 border border-white/10 text-center">
-                                                <p className="text-xs text-muted-foreground uppercase mb-1">Repositories</p>
-                                                <p className="text-xl font-bold text-primary">20+</p>
+                                            <div className="p-4 rounded-xl bg-white/5 border border-white/10 text-center flex flex-col items-center justify-center">
+                                                <p className="text-[10px] sm:text-xs text-muted-foreground uppercase mb-1 font-bold tracking-wider">Repositories</p>
+                                                <p className="text-lg sm:text-xl font-bold text-primary">20+</p>
                                             </div>
-                                            <div className="p-4 rounded-xl bg-white/5 border border-white/10 text-center">
-                                                <p className="text-xs text-muted-foreground uppercase mb-1">Stars</p>
-                                                <p className="text-xl font-bold text-primary">50+</p>
+                                            <div className="p-4 rounded-xl bg-white/5 border border-white/10 text-center flex flex-col items-center justify-center">
+                                                <p className="text-[10px] sm:text-xs text-muted-foreground uppercase mb-1 font-bold tracking-wider">Stars</p>
+                                                <p className="text-lg sm:text-xl font-bold text-primary">50+</p>
                                             </div>
-                                            <div className="p-4 rounded-xl bg-white/5 border border-white/10 text-center">
-                                                <p className="text-xs text-muted-foreground uppercase mb-1">Followers</p>
-                                                <p className="text-xl font-bold text-primary">25+</p>
+                                            <div className="p-4 rounded-xl bg-white/5 border border-white/10 text-center flex flex-col items-center justify-center">
+                                                <p className="text-[10px] sm:text-xs text-muted-foreground uppercase mb-1 font-bold tracking-wider">Followers</p>
+                                                <p className="text-lg sm:text-xl font-bold text-primary">25+</p>
                                             </div>
                                         </div>
                                     </div>
