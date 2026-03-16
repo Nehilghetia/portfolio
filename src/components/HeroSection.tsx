@@ -4,6 +4,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { TypeAnimation } from "react-type-animation";
 import { Github, Linkedin, Mail, Youtube, Twitter, Download, FolderOpen, Sparkles, Zap, Code, ArrowDown } from "lucide-react";
+import Magnetic from "./ui/Magnetic";
 
 
 gsap.registerPlugin(ScrollTrigger);
@@ -151,24 +152,28 @@ const HeroSection = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.8 }}
             >
-              <motion.a
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                href="https://drive.google.com/file/d/1-4LJ5-4LZhA_ey-3MJjiV94nqbYNtqeS/view?usp=drive_link"
-                className="group relative inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-gradient-to-r from-primary to-neon-purple text-primary-foreground font-bold shadow-[0_0_20px_rgba(var(--primary-rgb),0.3)] transition-shadow hover:shadow-[0_0_30px_rgba(var(--primary-rgb),0.5)]"
-              >
-                <Download size={20} />
-                Download Resume
-              </motion.a>
+              <Magnetic strength={0.3}>
+                <motion.a
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  href="https://drive.google.com/file/d/1-4LJ5-4LZhA_ey-3MJjiV94nqbYNtqeS/view?usp=drive_link"
+                  className="group relative inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-gradient-to-r from-primary to-neon-purple text-primary-foreground font-bold shadow-[0_0_20px_rgba(var(--primary-rgb),0.3)] transition-shadow hover:shadow-[0_0_30px_rgba(var(--primary-rgb),0.5)]"
+                >
+                  <Download size={20} />
+                  Download Resume
+                </motion.a>
+              </Magnetic>
 
-              <motion.a
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                href="#projects"
-                className="inline-flex items-center gap-2 px-8 py-4 rounded-xl border border-border/50 hover:border-primary/50 text-foreground font-bold glass transition-all"
-              >
-                View Projects <span>→</span>
-              </motion.a>
+              <Magnetic strength={0.3}>
+                <motion.a
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  href="#projects"
+                  className="inline-flex items-center gap-2 px-8 py-4 rounded-xl border border-border/50 hover:border-primary/50 text-foreground font-bold glass transition-all"
+                >
+                  View Projects <span>→</span>
+                </motion.a>
+              </Magnetic>
             </motion.div>
 
             <motion.div
@@ -183,17 +188,18 @@ const HeroSection = () => {
               </p>
               <div className="flex items-center gap-4">
                 {socialLinks.map((s, i) => (
-                  <motion.a
-                    key={s.label}
-                    href={s.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={s.label}
-                    whileHover={{ scale: 1.2, y: -2 }}
-                    className="w-10 h-10 rounded-lg glass border border-border/50 flex items-center justify-center text-muted-foreground hover:text-primary transition-all"
-                  >
-                    <s.icon size={20} />
-                  </motion.a>
+                  <Magnetic key={s.label} strength={0.4}>
+                    <motion.a
+                      href={s.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={s.label}
+                      whileHover={{ scale: 1.2, y: -2 }}
+                      className="w-10 h-10 rounded-lg glass border border-border/50 flex items-center justify-center text-muted-foreground hover:text-primary transition-all"
+                    >
+                      <s.icon size={20} />
+                    </motion.a>
+                  </Magnetic>
                 ))}
               </div>
             </motion.div>

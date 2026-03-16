@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { ModeToggle } from "./mode-toggle";
+import Magnetic from "./ui/Magnetic";
 
 const navLinks = [
   { label: "About", href: "#about" },
@@ -55,27 +56,31 @@ const Navbar = () => {
         }`}
     >
       <div className="w-full max-w-7xl mx-auto px-6 flex items-center justify-between py-4">
-        <a
-          href="#home"
-          onClick={(e) => handleLinkClick(e, "#home")}
-          className="flex flex-col items-start group relative z-[60]"
-        >
-          <span className="text-xl font-bold font-mono tracking-tight text-foreground">Nehil Ghetia</span>
-          <div className="h-0.5 w-full bg-gradient-to-r from-primary to-neon-purple rounded-full" />
-        </a>
+        <Magnetic strength={0.3}>
+          <a
+            href="#home"
+            onClick={(e) => handleLinkClick(e, "#home")}
+            className="flex flex-col items-start group relative z-[60]"
+          >
+            <span className="text-xl font-bold font-mono tracking-tight text-foreground">Nehil Ghetia</span>
+            <div className="h-0.5 w-full bg-gradient-to-r from-primary to-neon-purple rounded-full" />
+          </a>
+        </Magnetic>
 
         <div className="flex items-center gap-4 hidden md:flex">
           {/* Desktop */}
           <ul className="flex items-center gap-6">
             {navLinks.map((link) => (
               <li key={link.href}>
-                <a
-                  href={link.href}
-                  onClick={(e) => handleLinkClick(e, link.href)}
-                  className="text-sm lg:text-base text-muted-foreground hover:text-primary transition-colors duration-200 font-semibold tracking-wide"
-                >
-                  {link.label}
-                </a>
+                <Magnetic strength={0.2}>
+                  <a
+                    href={link.href}
+                    onClick={(e) => handleLinkClick(e, link.href)}
+                    className="text-sm lg:text-base text-muted-foreground hover:text-primary transition-colors duration-200 font-semibold tracking-wide p-2"
+                  >
+                    {link.label}
+                  </a>
+                </Magnetic>
               </li>
             ))}
           </ul>
