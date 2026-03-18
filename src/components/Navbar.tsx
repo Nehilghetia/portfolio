@@ -55,15 +55,20 @@ const Navbar = () => {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "glass-strong shadow-lg" : "bg-transparent"
         }`}
     >
-      <div className="w-full max-w-7xl mx-auto px-6 flex items-center justify-between py-4">
+      <div className="w-full mx-auto px-8 md:px-12 flex items-center justify-between py-4">
         <Magnetic strength={0.3}>
           <a
             href="#home"
             onClick={(e) => handleLinkClick(e, "#home")}
-            className="flex flex-col items-start group relative z-[60]"
+            className="flex items-center gap-3 group relative z-[60]"
           >
-            <span className="text-xl font-bold font-mono tracking-tight text-foreground">Nehil Ghetia</span>
-            <div className="h-0.5 w-full bg-gradient-to-r from-primary to-neon-purple rounded-full" />
+            <div className="relative w-10 h-10 rounded-xl overflow-hidden bg-primary/10 border border-primary/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+              <img src="/logo.svg" alt="NG" className="w-7 h-7" />
+            </div>
+            <div className="flex flex-col items-start">
+              <span className="text-xl font-bold font-mono tracking-tight text-foreground">Nehil Ghetia</span>
+              <div className="h-0.5 w-full bg-gradient-to-r from-primary to-neon-purple rounded-full" />
+            </div>
           </a>
         </Magnetic>
 

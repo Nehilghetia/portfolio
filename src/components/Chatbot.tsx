@@ -51,8 +51,9 @@ const Chatbot = () => {
         - Current Status: B.Tech Student (Information Technology) at CodingGita × Rai University & Full-Stack Developer
         
         Professional Statistics:
-        - Projects: 20+ Repositories & 3+ Featured Full-Stack Applications
-        - Experience: 3+ Years of Coding Experience
+        - Projects: 20+ Repositories & 4+ Featured Full-Stack Applications
+        - Status: 2nd Year B.Tech Student (Information Technology)
+        - Learning Commitment: 100%
         - Problem Solving: Live LeetCode stats on website (Username: ghetiyanehil), specialized in C++ and DSA.
         
         Technical Skills (Full Arsenal):
