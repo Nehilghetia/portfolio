@@ -158,7 +158,7 @@ const HeroSection = () => {
                 <motion.a
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  href="https://drive.google.com/file/d/1-4LJ5-4LZhA_ey-3MJjiV94nqbYNtqeS/view?usp=drive_link"
+                  href="https://drive.google.com/file/d/17aFrBpq8UaWU8s_-O-_6LPOA8bVHCQbA/view?usp=drive_link"
                   className="group relative inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-gradient-to-r from-primary to-neon-purple text-primary-foreground font-bold shadow-[0_0_20px_rgba(var(--primary-rgb),0.3)] transition-shadow hover:shadow-[0_0_30px_rgba(var(--primary-rgb),0.5)]"
                 >
                   <Download size={20} />

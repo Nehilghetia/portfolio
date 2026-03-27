@@ -118,6 +118,15 @@
       ]
     }
   </script>
+  <style>
+    /* Hide the static fallback content immediately if JS is enabled to prevent flicker */
+    .js #root>[aria-label="Portfolio Content"] {
+      display: none;
+    }
+  </style>
+  <script>
+    document.documentElement.classList.add('js');
+  </script>
 </head>
 
 <body>
