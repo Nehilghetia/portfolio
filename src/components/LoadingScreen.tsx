@@ -16,11 +16,11 @@ const LoadingScreen = ({ isLoading }: LoadingScreenProps) => {
     // Simulate fast loading progress 0-100
     let currentProgress = 0;
     const progressInterval = setInterval(() => {
-      currentProgress += Math.floor(Math.random() * 8) + 1;
+      currentProgress += Math.floor(Math.random() * 20) + 10;
       if (currentProgress > 100) currentProgress = 100;
       setProgress(currentProgress);
       if (currentProgress === 100) clearInterval(progressInterval);
-    }, 40);
+    }, 30);
 
     // Scramble text effect
     const chars = "!<>-_\\\\/[]{}—=+*^?#_01";
@@ -34,12 +34,12 @@ const LoadingScreen = ({ isLoading }: LoadingScreenProps) => {
         return chars[Math.floor(Math.random() * chars.length)];
       }).join(""));
 
-      iteration += 1;
+      iteration += 2;
       if (iteration >= finalName.length * 2) {
         clearInterval(scrambleInterval);
         setDisplayText(finalName);
       }
-    }, 40);
+    }, 30);
 
     return () => {
       clearInterval(progressInterval);

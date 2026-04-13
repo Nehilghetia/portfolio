@@ -130,10 +130,19 @@ const ProjectsSection = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [selectedProject, setSelectedProject] = useState<typeof projects[0] | null>(null);
   const [filter, setFilter] = useState("All");
+  const [showMore, setShowMore] = useState(false);
 
   const filteredProjects = filter === "All"
     ? projects
     : projects.filter(project => project.category === filter);
+
+  const displayedProjects = filter === "All" && !showMore
+    ? filteredProjects.slice(0, 6)
+    : filteredProjects;
+
+  useEffect(() => {
+    setShowMore(false);
+  }, [filter]);
 
   useEffect(() => {
     if (selectedProject) {
@@ -216,16 +225,16 @@ const ProjectsSection = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           <AnimatePresence mode="popLayout">
-            {filteredProjects.map((project, index) => (
+            {displayedProjects.map((project, index) => (
               <motion.div
                 layout
                 key={project.id}
                 layoutId={`project-container-${project.id}`}
                 className="project-card group relative cursor-pointer"
-                initial={{ opacity: 0, y: 100, rotateX: -30 }}
+                initial={{ opacity: 0, y: 50, rotateX: -20 }}
                 animate={isInView ? { opacity: 1, y: 0, rotateX: 0 } : {}}
                 exit={{ opacity: 0, scale: 0.9, transition: { duration: 0.2 } }}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
+                transition={{ duration: 0.4, delay: (index % 6) * 0.08 }}
                 onMouseEnter={() => setHoveredIndex(index)}
                 onMouseLeave={() => setHoveredIndex(null)}
                 onClick={() => setSelectedProject(project)}
@@ -302,6 +311,28 @@ const ProjectsSection = () => {
             ))}
           </AnimatePresence>
         </div>
+
+        {filter === "All" && filteredProjects.length > 6 && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ delay: 0.5, duration: 0.5 }}
+            className="mt-16 flex justify-center"
+          >
+            <button
+              onClick={() => setShowMore(!showMore)}
+              className="group relative px-8 py-3 rounded-full bg-foreground/5 hover:bg-foreground/10 border border-border/50 shadow-sm transition-all duration-300 overflow-hidden outline-none flex items-center gap-2"
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-neon-purple/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <span className="relative text-foreground font-semibold tracking-wide">
+                {showMore ? "Show Less" : "View Other Projects"}
+              </span>
+              <span className={`relative text-primary transition-transform duration-300 ${showMore ? "rotate-180" : ""}`}>
+                ↓
+              </span>
+            </button>
+          </motion.div>
+        )}
       </div>
 
       <AnimatePresence>
