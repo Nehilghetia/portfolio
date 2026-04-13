@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Github, Sparkles, Code2, Layers, X, Globe, CheckCircle2 } from "lucide-react";
+import { Github, Sparkles, Code2, Layers, X, Globe, CheckCircle2, PlayCircle } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -16,6 +16,7 @@ const projects = [
     tech: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Stripe", "Supabase"],
     live: "https://bill-mate-self.vercel.app/",
     github: "https://github.com/Nehilghetia/BillMate",
+    video: "#",
     gradient: "from-cyan-500 to-blue-500",
     category: "Development"
   },
@@ -28,6 +29,7 @@ const projects = [
     tech: ["HTML", "CSS", "JavaScript"],
     live: "https://laptopstore-ygdu.onrender.com",
     github: "https://github.com/Nehilghetia/Laptop",
+    video: "#",
     gradient: "from-purple-500 to-pink-500",
     category: "Development"
   },
@@ -47,9 +49,64 @@ const projects = [
     tech: ["Next.js", "Material UI", "MongoDB", "Tailwind CSS"],
     live: "https://mutual-fund-explorer-nehil.vercel.app/",
     github: "https://github.com/Nehilghetia/mutual-fund",
+    video: "#",
     gradient: "from-orange-500 to-red-500",
     category: "Development"
   },
+  {
+    id: 4,
+    title: "Attendance Calculator",
+    desc: "Attendance Pro is the ultimate college survival dashboard built to seamlessly track, plan, and analyze your class attendance.",
+    longDesc: "Attendance Pro is the ultimate college survival dashboard built to seamlessly track, plan, and analyze your class attendance. Say goodbye to manual math and endless uncertainty! With precise data analytics, a dynamic bunk planner, and shareable results, staying above your target attendance percentage has never been easier.",
+    features: [
+      "Live Attendance Tracking",
+      "Visual Analytics",
+      "Viral Sharing",
+      "Custom Schedule Settings"
+    ],
+    tech: ["Next.js", "Tailwind CSS", "TypeScript", "Lucide React", "Recharts"],
+    live: "https://attendance-calculator07.netlify.app/",
+    github: "https://github.com/Nehilghetia/attendance-calculator",
+    video: "#",
+    gradient: "from-green-500 to-emerald-500",
+    category: "Mini Project"
+  },
+  {
+    id: 5,
+    title: "Time Calculator",
+    desc: "The application lets you effortlessly calculate the time duration between a start time and an end time, wrapped in a smooth and animated user interface!",
+    longDesc: "A modern, aesthetically pleasing, and mobile-responsive Time Calculator built with pure HTML, CSS, and JavaScript. The application lets you effortlessly calculate the time duration between a start time and an end time, wrapped in a smooth and animated user interface!",
+    features: [
+      "Smart Time Calculations",
+      "History Tracking 📜",
+      "Fully Responsive 📱",
+      "12-Hour Format Support ⏰"
+    ],
+    tech: ["HTML", "CSS", "JavaScript"],
+    live: "https://time-calculator-bvwl.onrender.com/",
+    github: "https://github.com/Nehilghetia/Time-Calculator",
+    video: "#",
+    gradient: "from-teal-500 to-cyan-500",
+    category: "Mini Project"
+  },
+  {
+    id: 6,
+    title: "Tic-Tac-Toe",
+    desc: "A classic and interactive Tic-Tac-Toe game built entirely from scratch using pure HTML, CSS, and JavaScript.",
+    longDesc: "A classic and interactive Tic-Tac-Toe game built entirely from scratch using pure HTML, CSS, and JavaScript.",
+    features: [
+      "Two-Player Mode",
+      "Real-Time Winner Detection",
+      "Draw Condition",
+      "Dynamic Turn Indicator"
+    ],
+    tech: ["HTML", "CSS", "JavaScript"],
+    live: "https://tic-tac-toe-7cdr.onrender.com/",
+    github: "https://github.com/Nehilghetia/Tic-Tac-Toe-",
+    video: "#",
+    gradient: "from-yellow-400 to-orange-500",
+    category: "Mini Project"
+  }
 ];
 
 const categories = ["All", "Development", "UI/UX", "Mini Project"];
@@ -301,6 +358,19 @@ const ProjectsSection = () => {
                           >
                             <Github size={18} />
                             GitHub
+                          </motion.a>
+                        )}
+                        {selectedProject.video && (
+                          <motion.a
+                            href={selectedProject.video}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex-1 md:flex-none inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-2xl bg-foreground/5 border border-border/50 text-foreground font-bold hover:bg-foreground/10 transition-all outline-none"
+                            whileHover={{ scale: 1.02, y: -2 }}
+                            whileTap={{ scale: 0.98 }}
+                          >
+                            <PlayCircle size={18} />
+                            Video
                           </motion.a>
                         )}
                       </div>
