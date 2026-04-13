@@ -52,7 +52,7 @@ const projects = [
   },
 ];
 
-const categories = ["All", "Development", "UI/UX"];
+const categories = ["All", "Development", "UI/UX", "Mini Project"];
 
 const ProjectsSection = () => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -87,32 +87,6 @@ const ProjectsSection = () => {
           end: "bottom top",
           scrub: 1,
         },
-      });
-
-      // Cards animation
-      const cards = sectionRef.current.querySelectorAll(".project-card");
-      cards.forEach((card, index) => {
-        gsap.fromTo(
-          card,
-          {
-            opacity: 0,
-            y: 100,
-            rotateX: -30,
-          },
-          {
-            opacity: 1,
-            y: 0,
-            rotateX: 0,
-            duration: 1,
-            ease: "power3.out",
-            scrollTrigger: {
-              trigger: card,
-              start: "top 85%",
-            },
-          }
-        );
-
-
       });
     }, sectionRef);
 
@@ -178,8 +152,9 @@ const ProjectsSection = () => {
                 key={project.id}
                 layoutId={`project-container-${project.id}`}
                 className="project-card group relative cursor-pointer"
-                initial={{ opacity: 0, y: 50 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                initial={{ opacity: 0, y: 100, rotateX: -30 }}
+                animate={isInView ? { opacity: 1, y: 0, rotateX: 0 } : {}}
+                exit={{ opacity: 0, scale: 0.9, transition: { duration: 0.2 } }}
                 transition={{ duration: 0.6, delay: index * 0.2 }}
                 onMouseEnter={() => setHoveredIndex(index)}
                 onMouseLeave={() => setHoveredIndex(null)}
