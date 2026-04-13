@@ -54,6 +54,19 @@ const projects = [
     category: "Development"
   },
   {
+    id: 2,
+    title: "Car-Market",
+    desc: "A premium e-commerce platform for high-end laptops, featuring top brands like Apple and Dell with a seamless shopping experience.",
+    longDesc: "DriveAI is a high-performance, production-ready automotive platform designed to bridge the gap between traditional car classifieds and modern, AI-augmented commerce. Built using the latest Next.js 14 App Router architecture and powered by Supabase, DriveAI offers a seamless, secure, and data-driven experience for both buyers and sellers.",
+    features: ["Image-to-Specs", "VIN Decoding", "Advanced Search & Filters", "AI-Powered Recommendations"],
+    tech: ["Next.js", "TypeScript", "Tailwind CSS", "Supabase"],
+    live: "https://car-market-six.vercel.app/",
+    github: "https://github.com/Nehilghetia/Car-Market",
+    video: "#",
+    gradient: "from-purple-500 to-pink-500",
+    category: "Development"
+  },
+  {
     id: 4,
     title: "Attendance Calculator",
     desc: "Attendance Pro is the ultimate college survival dashboard built to seamlessly track, plan, and analyze your class attendance.",
