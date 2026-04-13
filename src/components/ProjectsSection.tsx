@@ -47,7 +47,7 @@ const projects = [
       "Data Visualization: Interactive Chart.js & Recharts dashboards"
     ],
     tech: ["Next.js", "Material UI", "MongoDB", "Tailwind CSS"],
-    live: "https://mutual-fund-explorer-nehil.vercel.app/",
+    live: "https://mutual-fund-xi.vercel.app/",
     github: "https://github.com/Nehilghetia/mutual-fund",
     video: "#",
     gradient: "from-orange-500 to-red-500",
