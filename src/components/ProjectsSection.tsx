@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Github, Sparkles, Code2, Layers, X, Globe, CheckCircle2, PlayCircle } from "lucide-react";
+import { Github, Sparkles, Code2, Layers, X, Globe, CheckCircle2, PlayCircle, Figma } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -54,7 +54,7 @@ const projects = [
     category: "Development"
   },
   {
-    id: 2,
+    id: 10,
     title: "Car-Market",
     desc: "A premium e-commerce platform for high-end laptops, featuring top brands like Apple and Dell with a seamless shopping experience.",
     longDesc: "DriveAI is a high-performance, production-ready automotive platform designed to bridge the gap between traditional car classifieds and modern, AI-augmented commerce. Built using the latest Next.js 14 App Router architecture and powered by Supabase, DriveAI offers a seamless, secure, and data-driven experience for both buyers and sellers.",
@@ -119,6 +119,44 @@ const projects = [
     video: "#",
     gradient: "from-yellow-400 to-orange-500",
     category: "Mini Project"
+  },
+  {
+    id: 7,
+    title: "E-Commerce (Hypermart)",
+    desc: "A modern, user-friendly shopping mobile app UI designed for groceries, electronics, and daily essentials, featuring smart search, product browsing, deals, and seamless cart functionality.",
+    longDesc: "This interface represents a modern eCommerce / grocery shopping mobile application, designed with a clean layout, soft gradients, and highly intuitive user experience. The UI focuses on easy product discovery, quick ordering, and visually engaging deals.",
+    features: [
+      "Smart Home Dashboard",
+      "Advanced Search & Discovery",
+      "Product Browsing & Cards",
+      "Cart & Quantity Management"
+    ],
+    tech: ["Figma", "UI/UX Design", "Wireframing"],
+    live: "#",
+    github: "#",
+    video: "#",
+    figma: "https://www.figma.com/design/7KEb7fA0YAIJI0pFUiUhNb/Untitled?node-id=0-1&p=f&t=5u9NXBYLjtafkvSr-0",
+    gradient: "from-fuchsia-500 to-pink-500",
+    category: "UI/UX"
+  },
+  {
+    id: 8,
+    title: "ManageX",
+    desc: "A modern, clean admin dashboard UI with a sidebar navigation, analytics cards, and a customer management table. It focuses on usability, soft colors, and organized data presentation for quick insights.",
+    longDesc: "This dashboard interface represents a SaaS-based admin panel designed with a modern and minimal aesthetic. The layout is divided into three primary sections: a sidebar navigation, a top analytics section, and a data table area.",
+    features: [
+      "Sidebar Navigation",
+      "Analytics Cards",
+      "Smart Search & Filter",
+      "Customer Management Table"
+    ],
+    tech: ["Figma", "Prototyping", "UX Strategy"],
+    live: "#",
+    github: "#",
+    video: "#",
+    figma: "https://www.figma.com/design/eld5XgkdPKsNcl0DeQeACc/Untitled?node-id=0-1&p=f&t=CstkHpYPbFYFdQUo-0",
+    gradient: "from-indigo-500 to-purple-500",
+    category: "UI/UX"
   }
 ];
 
@@ -378,7 +416,20 @@ const ProjectsSection = () => {
                       </div>
 
                       <div className="flex flex-shrink-0 gap-4">
-                        {selectedProject.live !== "#" && (
+                        {(selectedProject as any).figma && (selectedProject as any).figma !== "#" && (
+                          <motion.a
+                            href={(selectedProject as any).figma}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={`flex-1 md:flex-none inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-2xl bg-gradient-to-r ${selectedProject.gradient} text-primary-foreground font-bold hover:shadow-lg hover:shadow-primary/25 transition-all outline-none`}
+                            whileHover={{ scale: 1.02, y: -2 }}
+                            whileTap={{ scale: 0.98 }}
+                          >
+                            <Figma size={18} />
+                            Figma Design
+                          </motion.a>
+                        )}
+                        {selectedProject.category !== "UI/UX" && selectedProject.live !== "#" && (
                           <motion.a
                             href={selectedProject.live}
                             target="_blank"
@@ -391,7 +442,7 @@ const ProjectsSection = () => {
                             Live Demo
                           </motion.a>
                         )}
-                        {selectedProject.github !== "#" && (
+                        {selectedProject.category !== "UI/UX" && selectedProject.github !== "#" && (
                           <motion.a
                             href={selectedProject.github}
                             target="_blank"
@@ -404,7 +455,7 @@ const ProjectsSection = () => {
                             GitHub
                           </motion.a>
                         )}
-                        {selectedProject.video && (
+                        {selectedProject.category !== "UI/UX" && selectedProject.video && (
                           <motion.a
                             href={selectedProject.video}
                             target="_blank"
