@@ -49,7 +49,7 @@ const ContactSection = () => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          service_id: "service_ghpkeg7",
+          service_id: "service_gtqgbn4",
           template_id: "template_2xp9isd",
           user_id: "vftG60dMRQAQlf02Q",
           template_params: {
