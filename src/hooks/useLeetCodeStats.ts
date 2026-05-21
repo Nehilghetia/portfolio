@@ -11,13 +11,28 @@ interface LeetCodeData {
     allQuestionsCount: { difficulty: string; count: number }[];
 }
 
+const fallbackData: LeetCodeData = {
+    solvedProblem: 202,
+    easySolved: 132,
+    mediumSolved: 59,
+    hardSolved: 11,
+    totalQuestions: 3873,
+    ranking: "747,525",
+    acceptanceRate: 84.03,
+    allQuestionsCount: [
+        { difficulty: "Easy", count: 932 },
+        { difficulty: "Medium", count: 2026 },
+        { difficulty: "Hard", count: 915 }
+    ]
+};
+
 export const useLeetCodeStats = (username: string = "ghetiyanehil") => {
-    const [data, setData] = useState<LeetCodeData | null>(() => {
+    const [data, setData] = useState<LeetCodeData>(() => {
         // Initialize from localStorage if available
         const cached = localStorage.getItem(`leetcode_stats_${username}`);
-        return cached ? JSON.parse(cached) : null;
+        return cached ? JSON.parse(cached) : fallbackData;
     });
-    const [loading, setLoading] = useState(!data); // Only show loading if we have no cached data
+    const [loading, setLoading] = useState(false); // Never show loading spinner on first paint
     const [error, setError] = useState<string | null>(null);
 
     useEffect(() => {
@@ -68,26 +83,8 @@ export const useLeetCodeStats = (username: string = "ghetiyanehil") => {
                 }
             }
 
-            if (!success && !data) {
-                // Final fallback for branding/portfolio consistency if no cache exists
-                const fallbackData: LeetCodeData = {
-                    solvedProblem: 202,
-                    easySolved: 132,
-                    mediumSolved: 59,
-                    hardSolved: 11,
-                    totalQuestions: 3873,
-                    ranking: "747,525",
-                    acceptanceRate: 84.03,
-                    allQuestionsCount: [
-                        { difficulty: "Easy", count: 932 },
-                        { difficulty: "Medium", count: 2026 },
-                        { difficulty: "Hard", count: 915 }
-                    ]
-                };
-                setData(fallbackData);
-                setError(null); // Clear error for branding purposes
-            } else if (!success) {
-                setError(lastError || "All API mirrors failed");
+            if (!success) {
+                console.warn(lastError || "All API mirrors failed. Keeping cached/fallback statistics.");
             }
             setLoading(false);
         };

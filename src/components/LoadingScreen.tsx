@@ -3,12 +3,15 @@ import { useEffect, useState } from "react";
 
 interface LoadingScreenProps {
   isLoading: boolean;
+  onComplete?: () => void;
 }
 
-const LoadingScreen = ({ isLoading }: LoadingScreenProps) => {
+const LoadingScreen = ({ isLoading, onComplete }: LoadingScreenProps) => {
   const finalName = "<Nehil Ghetia />";
   const [displayText, setDisplayText] = useState("");
   const [progress, setProgress] = useState(0);
+  const [progressDone, setProgressDone] = useState(false);
+  const [scrambleDone, setScrambleDone] = useState(false);
 
   useEffect(() => {
     if (!isLoading) return;
@@ -19,7 +22,10 @@ const LoadingScreen = ({ isLoading }: LoadingScreenProps) => {
       currentProgress += Math.floor(Math.random() * 20) + 10;
       if (currentProgress > 100) currentProgress = 100;
       setProgress(currentProgress);
-      if (currentProgress === 100) clearInterval(progressInterval);
+      if (currentProgress === 100) {
+        clearInterval(progressInterval);
+        setProgressDone(true);
+      }
     }, 30);
 
     // Scramble text effect
@@ -38,6 +44,7 @@ const LoadingScreen = ({ isLoading }: LoadingScreenProps) => {
       if (iteration >= finalName.length * 2) {
         clearInterval(scrambleInterval);
         setDisplayText(finalName);
+        setScrambleDone(true);
       }
     }, 30);
 
@@ -46,6 +53,15 @@ const LoadingScreen = ({ isLoading }: LoadingScreenProps) => {
       clearInterval(scrambleInterval);
     };
   }, [isLoading]);
+
+  useEffect(() => {
+    if (progressDone && scrambleDone && onComplete) {
+      const timer = setTimeout(() => {
+        onComplete();
+      }, 100);
+      return () => clearTimeout(timer);
+    }
+  }, [progressDone, scrambleDone, onComplete]);
 
   return (
     <AnimatePresence>

@@ -20,6 +20,11 @@ const MagneticCursor = () => {
         const checkDesktop = () => setIsDesktop(window.innerWidth > 1024);
         checkDesktop();
         window.addEventListener("resize", checkDesktop);
+        return () => window.removeEventListener("resize", checkDesktop);
+    }, []);
+
+    useEffect(() => {
+        if (!isDesktop) return;
 
         const moveCursor = (e: MouseEvent) => {
             mouseX.set(e.clientX);
@@ -54,7 +59,6 @@ const MagneticCursor = () => {
         document.addEventListener("mouseenter", onMouseEnterWindow);
 
         return () => {
-            window.removeEventListener("resize", checkDesktop);
             window.removeEventListener("mousemove", moveCursor);
             window.removeEventListener("mousedown", onMouseDown);
             window.removeEventListener("mouseup", onMouseUp);
@@ -63,7 +67,7 @@ const MagneticCursor = () => {
             document.removeEventListener("mouseleave", onMouseLeaveWindow);
             document.removeEventListener("mouseenter", onMouseEnterWindow);
         };
-    }, [mouseX, mouseY, isVisible, hasMoved]);
+    }, [isDesktop, mouseX, mouseY, isVisible, hasMoved]);
 
     if (!isDesktop) return null;
 

@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useInView } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import {
@@ -82,19 +82,19 @@ const skillCategories = [
   },
 ];
 
-const CyclingSkillGrid = ({ skills }: { skills: any[] }) => {
+const CyclingSkillGrid = ({ skills, isInView }: { skills: any[]; isInView: boolean }) => {
   const [startIndex, setStartIndex] = useState(0);
   const itemsPerPage = 9; // 3 rows of 3 columns
 
   useEffect(() => {
-    if (skills.length <= itemsPerPage) return;
+    if (skills.length <= itemsPerPage || !isInView) return;
 
     const interval = setInterval(() => {
       setStartIndex((prev) => (prev + itemsPerPage) % skills.length);
     }, 4000); // Change every 4 seconds
 
     return () => clearInterval(interval);
-  }, [skills.length]);
+  }, [skills.length, isInView]);
 
   const displayedSkills = skills.length > itemsPerPage
     ? [...skills, ...skills].slice(startIndex, startIndex + itemsPerPage)
@@ -128,6 +128,7 @@ const CyclingSkillGrid = ({ skills }: { skills: any[] }) => {
 
 const SkillsSection = () => {
   const sectionRef = useRef<HTMLElement>(null);
+  const isInView = useInView(sectionRef, { once: false, amount: 0.1 });
 
   useEffect(() => {
     const el = sectionRef.current;
@@ -207,7 +208,7 @@ const SkillsSection = () => {
                 </div>
 
                 {/* Cycling Skill Grid: Max 3 columns as requested */}
-                <CyclingSkillGrid skills={cat.skills} />
+                <CyclingSkillGrid skills={cat.skills} isInView={isInView} />
 
                 {/* Auto Skill Changed Indicator */}
                 <div className="mt-auto flex items-center justify-between px-2 pt-4 border-t border-border/50">
