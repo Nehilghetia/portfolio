@@ -67,37 +67,13 @@ const AchievementsSection = () => {
             ease: "power2.out",
             scrollTrigger: {
               trigger: counter,
-              start: "top 80%",
+              start: "top 90%",
             },
           }
         );
       });
 
-      // Card animations
-      const cards = sectionRef.current!.querySelectorAll(".achievement-card");
-      cards.forEach((card, index) => {
-        gsap.fromTo(
-          card,
-          {
-            opacity: 0,
-            scale: 0.5,
-            rotateY: -90,
-          },
-          {
-            opacity: 1,
-            scale: 1,
-            rotateY: 0,
-            duration: 0.8,
-            ease: "back.out(1.7)",
-            scrollTrigger: {
-              trigger: card,
-              start: "top 85%",
-            },
-          }
-        );
-      });
-
-      // Icon rotation
+      // Icon rotation - only once
       const icons = sectionRef.current!.querySelectorAll(".achievement-icon");
       icons.forEach((icon) => {
         gsap.to(icon, {

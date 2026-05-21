@@ -145,12 +145,12 @@
   body {
     @apply bg-background text-foreground font-sans;
 
-    @media (hover: hover) {
+    @media (min-width: 1024px) and (hover: hover) {
       cursor: none;
     }
   }
 
-  @media (hover: hover) {
+  @media (min-width: 1024px) and (hover: hover) {
 
     a,
     button,
